@@ -1,0 +1,27 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Cada agente só enxerga e altera o próprio documento
+    match /jogadores/{uid} {
+      allow read: if request.auth != null && request.auth.uid == uid;
+
+      // Criação: o monstro precisa ser um ID válido (1 a 16)
+      allow create: if request.auth != null
+        && request.auth.uid == uid
+        && request.resource.data.monstroId is int
+        && request.resource.data.monstroId >= 1
+        && request.resource.data.monstroId <= 16;
+
+      // Atualização: o monstro só pode ser definido uma vez e nunca trocado
+      allow update: if request.auth != null
+        && request.auth.uid == uid
+        && (
+          resource.data.get('monstroId', null) == null
+          || request.resource.data.monstroId == resource.data.monstroId
+        );
+
+      allow delete: if false;
+    }
+  }
+}

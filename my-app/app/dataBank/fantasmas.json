@@ -1,0 +1,164 @@
+{
+    "fantasmas": [
+    {
+    "id": 1,
+    "nome": "Ghoul",
+    "descricao": "Monstro místico e fantasmagórico que habita cemitérios, com pele pálida, dentes afiados e garras, por vezes assumindo formas humanas ou animais.",
+    "regiao": "Ásia",
+    "motivacao": "Devorar a carne de cadáveres humanos e saquear sepulturas",
+    "surgimento": "Século VIII",
+    "emf": [[1, 1], [0, -2], [1, -1], [-2, -1], [-1, 2]],
+    "imagem": "/ghoull.png"
+    },
+    {
+    "id": 2,
+    "nome": "Oni",
+    "descricao": "Espírito demônio do folclore com chifres, pele vermelha ou azul, presas proeminentes e carregando um bastão de ferro.",
+    "regiao": "Ásia",
+    "motivacao": "Punir as almas dos maus no inferno e causar calamidades e sofrimento aos vivos",
+    "surgimento": "Século VIII",
+    "emf": [[2, -2], [2, -1], [-2, 2], [0, -2], [1, -1]],
+    "imagem": "/oni.png"
+    },
+    {
+    "id": 3,
+    "nome": "Espírito",
+    "descricao": "Manifestação etérea e translúcida da alma humana, por vezes invisível ou aparecendo como uma névoa flutuante com contornos humanos",
+    "regiao": "Global",
+    "motivacao": "Buscar descanso, transmitir mensagens pendentes aos vivos ou resolver assuntos inacabados",
+    "surgimento": "Antiguidade",
+    "emf": [[2, -2], [2, 1], [2, 1], [-1, 0], [0, -1]],
+    "imagem": "/espirito.png"
+    },
+    {
+    "id": 4,
+    "nome": "Banshee",
+    "descricao": "Corpo feminino, pele muito pálida, olhos vermelhos e inchados de tanto chorar, e cabelos longos",
+    "regiao": "Europa",
+    "motivacao": "Indicar presságio de morte ",
+    "surgimento": "Século VIII",
+    "emf": [[2, 0], [1, 0], [-2, 1], [-2, -1], [0, 1]],
+    "imagem": "/banshee.png"
+    },
+    {
+    "id": 5,
+    "nome": "La Llorona",
+    "descricao": "Figura feminina vestida de branco, com cabelos longos e escuros, envolta em um véu flutuante e com o rosto pálido ou desfigurado",
+    "regiao": "América",
+    "motivacao": "Chorar e vagar pelas margens dos rios procurando seus filhos perdidos, atraindo e punindo aqueles que cruzam seu caminho",
+    "surgimento": "Século XVI",
+    "emf": [[0, 2], [-1, 0], [0, -2], [-1, -1], [2, 1]],
+    "imagem": "/la_llorona.png"
+    },
+    {
+    "id": 6,
+    "nome": "Corpo-Seco",
+    "descricao": "Cadáver extremamente magro, em pele e osso, com aparência ressequida, unhas e cabelos compridos e feição decadente",
+    "regiao": "América",
+    "motivacao": "Cumprir uma sina eterna de perambular pela terra após ter sido rejeitado pelo Céu, pelo Inferno e pela própria terra",
+    "surgimento": "Século XIX",
+    "emf": [[2, 0], [2, 2], [1, 1], [-1, 2], [-1, -1]],
+    "imagem": "/corpo_seco.png"
+    },
+    {
+    "id": 7,
+    "nome": "Kuchisake-onna",
+    "descricao": "Mulher de cabelos escuros vestindo um sobretudo comprido, usando uma máscara cirúrgica para cobrir a boca rasgada de orelha a orelha",
+    "regiao": "Ásia",
+    "motivacao": "Abordar transeuntes à noite para perguntar se a acham bonita antes de revelar sua verdadeira face e ataca-los",
+    "surgimento": "Século XVII",
+    "emf": [[0, -1], [0, 2], [2, 0], [-2, -2], [0, -1]],
+    "imagem": "/kuchisake_onna.png"
+    },
+    {
+    "id": 8,
+    "nome": "Onryō",
+    "descricao": "Espírito de vestes brancas de funeral, pele de palidez morta, cabelos pretos cobrindo o rosto e olhos fundos",
+    "regiao": "Ásia",
+    "motivacao": "Buscar vingança obsessiva e irrestrita contra aqueles que o prejudicaram ou contra qualquer um que cruze seu caminho",
+    "surgimento": "Século VIII",
+    "emf": [[-2, 0], [-2, 2], [-2, -2], [-2, 1], [0, 2]],
+    "imagem": "/onryo.png"
+    },
+    {
+    "id": 9,
+    "nome": "O Cavaleiro Sem Cabeça",
+    "descricao": "Cavaleiro alto montado em um cavalo negro, trajando roupas militares antigas e sem a cabeça no pescoço",
+    "regiao": "América",
+    "motivacao": "Vagar à procura de sua cabeça perdida no campo de batalha durante a Revolução Americana",
+    "surgimento": "Século XVIII",
+    "emf": [[1, -2], [0, 1], [-1, 2], [-1, -2], [2, 1]],
+    "imagem": "/cavaleiro_sem_cabeca.png"
+    },
+    {
+    "id": 10,
+    "nome": "Dama Branca",
+    "descricao": "Aparição feminina vestida inteiramente com trajes ou vestidos de noiva brancos, de porte elegante e expressão melancólica",
+    "regiao": "Europa",
+    "motivacao": "Assombrar castelos e famílias nobres para avisar sobre mortes iminentes ou lamentar uma tragédia amorosa do passado",
+    "surgimento": "Século XV",
+    "emf": [[2, 1], [1, 0], [1, 1], [1, 1], [-1, -2]],
+    "imagem": "/dama_branca.png"
+    },
+    {
+    "id": 11,
+    "nome": "Pontianak",
+    "descricao": "Mulher de pele pálida, cabelos pretos extremamente longos cobrindo o rosto, vestes brancas manchadas e unhas compridas como garras",
+    "regiao": "Ásia",
+    "motivacao": "Vingação contra homens por ter morrido durante o parto ou por violência sofrida em vida",
+    "surgimento": "Século XVIII",
+    "emf": [[0, 2], [1, -1], [-2, 1], [-1, -1], [-1, -2]],
+    "imagem": "/pontianak.png"
+    },
+    {
+    "id": 12,
+    "nome": "Draugr",
+    "descricao": "Cadáver reanimado com corpo encharcado, pele necrosada em tom azul-cinzento, portando armaduras de guerreiros e exalando cheiro de decomposição",
+    "regiao": "Europa",
+    "motivacao": "Proteger com extrema violência os tesouros e riquezas enterrados em sua sepultura",
+    "surgimento": "Século IX",
+    "emf": [[1, 0], [-2, -1], [2, 2], [-1, -2], [-1, 1]],
+    "imagem": "/draugr.png"
+    },
+    {
+    "id": 13,
+    "nome": "Jiangshi",
+    "descricao": "Cadáver rígido vestindo trajes oficiais da dinastia Qing, com pele pálida ou esverdeada, cabelos compridos e braços estendidos para a frente",
+    "regiao": "Ásia",
+    "motivacao": "Drenar a energia vital (Qi) das pessoas vivas por estar impossibilitado de alcançar o descanso eterno",
+    "surgimento": "Século XVII",
+    "emf": [[0, -2], [1, 1], [-2, 2], [-1, -1], [0, 2]],
+    "imagem": "/jiangshi.png"
+    },
+    {
+    "id": 14,
+    "nome": "Vetala",
+    "descricao": "Espírito que habita corpos mortos em cemitérios, com mãos e pés virados para trás, olhos incandescentes e unhas afiadas",
+    "regiao": "Ásia",
+    "motivacao": "Atrapalhar viajantes, pregar peças, causar loucura e revelar segredos do passado e do futuro através de enigmas",
+    "surgimento": "Século XI",
+    "emf": [[0, -2], [-1, -1], [1, 0], [1, 0], [2, 1]],
+    "imagem": "/vetala.png"
+    },
+    {
+    "id": 15,
+    "nome": "O Holandês Voador",
+    "descricao": "Um navio fantasma decrépito emanando uma luz espectral, tripulado por marinheiros esqueléticos ou em decomposição",
+    "regiao": "Global",
+    "motivacao": "Condenado a navegar eternamente sem jamais poder aportar, servindo como um presságio de desgraça para os marinheiros que o avistam",
+    "surgimento": "Século XVII",
+    "emf": [[-2, -1], [-2, -1], [0, -2], [0, 2], [-1, -1]],
+    "imagem": "/holandês_voador.png"
+    },
+    {
+    "id": 16,
+    "nome": "Maria Sangrenta",
+    "descricao": "Aparição feminina refletida em espelhos, com o rosto ensanguentado, vestes rasgadas e expressão de raiva ou dor",
+    "regiao": "América",
+    "motivacao": "Responder a rituais de invocação feitos em ambientes escuros diante do espelho, atormentando ou atacando quem a chama",
+    "surgimento": "Século XX",
+    "emf": [[-2, 0], [1, -2], [-2, -2], [0, -2], [1, 0]],
+    "imagem": "/bloody_mary.png"
+    }
+]
+}

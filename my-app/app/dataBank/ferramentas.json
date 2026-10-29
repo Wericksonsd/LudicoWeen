@@ -1,0 +1,44 @@
+{
+    "ferramentas": [
+        {
+            "id": 1,
+            "nome": "Leitor EMF",
+            "descricao": "Detecta campos magnéticos para determinar a agresão de um fantasma.",
+            "icon": "PanelTopBottomDashed",
+            "linkTo": "/ferramentas/emf",
+            "codigoQr": "CASSIO-PLACEHOLDER-EMF"
+        },
+        {
+            "id": 2,
+            "nome": "Luz UV",
+            "descricao": "Capture vestígios dos fantasmas.",
+            "icon": "Flashlight",
+            "linkTo": "/ferramentas/uv",
+            "codigoQr": "CASSIO-PLACEHOLDER-UV"
+        },
+        {
+            "id": 3,
+            "nome": "Resquícios",
+            "descricao": "Recupere antigas notícias e lendas para obter melhores informações.",
+            "icon": "KeyboardMusic",
+            "linkTo": "/ferramentas/retalhos",
+            "codigoQr": "CASSIO-PLACEHOLDER-RESQUICIOS"
+        },
+        {
+            "id": 4,
+            "nome": "Retalhos",
+            "descricao": "Análise relatos de testemunhas para identificar padrões de comportamento.",
+            "icon": "KeyboardMusic",
+            "linkTo": "/ferramentas/ouija",
+            "codigoQr": "CASSIO-PLACEHOLDER-FERRAMENTA-4"
+        },
+        {
+            "id": 5,
+            "nome": "Retalhos",
+            "descricao": "Análise relatos de testemunhas para identificar padrões de comportamento.",
+            "icon": "KeyboardMusic",
+            "linkTo": "/ferramentas/ouija",
+            "codigoQr": "CASSIO-PLACEHOLDER-FERRAMENTA-5"
+        }
+    ]
+}
