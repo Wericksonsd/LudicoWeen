@@ -77,9 +77,8 @@ export default function Ferramentas() {
             <div className="flex-1 w-full border-3 border-orange-300 rounded-md p-4 flex flex-wrap items-center justify-center content-center gap-6">
                 {Array.from({ length: QTD_CIRCULOS }, (_, i) => (
                     <button key={i} type="button" onClick={() => setAtual(i)} aria-label={`Círculo ${i + 1}`}
-                        className={`w-20 h-20 rounded-full flex items-center justify-center text-xl font-bold text-zinc-950/60 transition-colors ${atual === i ? "ring-4 ring-orange-300 ring-offset-2 ring-offset-zinc-900" : ""}`}
+                        className={`w-4 h-4 rounded-full flex items-center justify-center font-bold text-zinc-950/60 transition-colors`}
                         style={{ backgroundColor: corCirculo(i) }}>
-                        {i + 1}
                     </button>
                 ))}
             </div>
@@ -104,10 +103,12 @@ export default function Ferramentas() {
                                 value={valores[atual][s.eixo]}
                                 onChange={(e) => alterar(s.eixo, parseInt(e.target.value))}
                                 className="h-1 w-full"/>
-                            <div className="w-full grid grid-cols-5 text-sm">
-                                {ROTULOS.map((n, k) => (
-                                    <p key={n} className={k === 0 ? "text-left" : k === 4 ? "text-right" : "text-center"}>{n}</p>
-                                ))}
+                            <div className="w-full flex items-center justify-between text-sm">
+                                <p>•</p>
+                                <p>•</p>                                
+                                <p>•</p>                                
+                                <p>•</p>                                
+                                <p>•</p>
                             </div>
                         </div>
                     ))}

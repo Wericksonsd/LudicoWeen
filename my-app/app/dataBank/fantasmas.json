@@ -8,6 +8,9 @@
     "motivacao": "Devorar a carne de cadáveres humanos e saquear sepulturas",
     "surgimento": "Século VIII",
     "emf": [[1, 1], [0, -2], [1, -1], [-2, -1], [-1, 2]],
+    "uv": 4,
+    "texto": ["Texto...", "texto2...", "texto3..."],
+    "retalho": 2,
     "imagem": "/ghoull.png"
     },
     {

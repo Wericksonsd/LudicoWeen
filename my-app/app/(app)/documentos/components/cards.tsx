@@ -27,10 +27,9 @@ export default function CardsFantasma({ fantasmas, liberado }: Props) {
                     <p><span className="font-bold">Região:</span> {info(fantasmas.regiao)}</p>
                     <p><span className="font-bold">Origem:</span> {info(fantasmas.surgimento)}</p>
                     <p><span className="font-bold">Motivação:</span> {info(fantasmas.motivacao)}</p>
-                    <p><span className="font-bold">Região:</span> {info(fantasmas.regiao)}</p>
-                    <p><span className="font-bold">Região: </span>{info(fantasmas.regiao)}</p>
-                    <p><span className="font-bold">Região:</span> {info(fantasmas.regiao)}</p>
-                    <p><span className="font-bold">Região:</span> {info(fantasmas.regiao)}</p>
+                    <p><span className="font-bold">Presença:</span> {info(fantasmas.regiao)}</p>
+                    <p><span className="font-bold">Ligação: </span>{info(fantasmas.regiao)}</p>
+                    <p><span className="font-bold">Agressividade:</span> {info(fantasmas.regiao)}</p>
                 </div>
             </div>
         </div>
