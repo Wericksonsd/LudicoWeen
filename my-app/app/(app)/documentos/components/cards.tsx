@@ -1,6 +1,6 @@
 'use client'
 import {type Fantasma} from "../../../dataBank/fantasmasType"
-import Imagem from "../../../components/imagem"
+import Image from "next/image"
 import { capitalizar, ligacaoPorOrdem, presencaPorUv } from "../../../lib/fantasma"
 
 type Props = {
@@ -20,7 +20,7 @@ export default function CardsFantasma({ fantasmas, liberado }: Props) {
                 <p className="text-sm text-center">{fantasmas.descricao}</p>
             </div>
             <div className="w-full flex items-center justify-center pr-2">
-                <Imagem
+                <Image
                     src={liberado ? fantasmas.imagem : "/bloqueado.png"}
                     alt={liberado ? fantasmas.nome : "Imagem bloqueada"}
                     height={400} width={200} loading="eager" className="flex-1 mix-blend-multiply"/>

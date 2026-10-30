@@ -5,7 +5,6 @@ import Titulo from "../../../components/titulo"
 import dados from "../../../dataBank/fantasmas.json"
 import { useJogador } from "../../../context/JogadorContext"
 import { useGuardaFerramenta } from "../../../lib/useGuardaFerramenta"
-import { urlImagem } from "../../../lib/imagens"
 
 const QTD_RELATOS = 3
 
@@ -38,7 +37,7 @@ export default function Relatos() {
                 <div className="fixed top-0 left-0 h-dvh w-dvw bg-zinc-900/80 z-10 p-6 flex items-center justify-center">
                     <div
                         className="max-h-full w-full rounded-lg p-6 flex flex-col gap-4 text-zinc-900 bg-stone-200 bg-cover bg-center"
-                        style={{ backgroundImage: `url(${urlImagem("/relatos/jornal.png")})` }}>
+                        style={{ backgroundImage: `url(/relatos/jornal.png)` }}>
                         <h1 className="text-center text-xl font-black uppercase">Relato {aberto + 1}</h1>
                         <p className="overflow-y-auto text-sm leading-relaxed whitespace-pre-line">
                             {textos[aberto] ?? "..."}

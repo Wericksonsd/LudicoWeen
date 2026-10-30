@@ -5,7 +5,6 @@ import Titulo from "../../../components/titulo"
 import dados from "../../../dataBank/fantasmas.json"
 import { useJogador } from "../../../context/JogadorContext"
 import { useGuardaFerramenta } from "../../../lib/useGuardaFerramenta"
-import { urlImagem } from "../../../lib/imagens"
 
 /** tamanho da imagem de máscara em relação à largura do container (2.5 = 250%) */
 const ESCALA_MASCARA = 2.5
@@ -17,8 +16,8 @@ export default function UV() {
 
     // o fundo depende da UV (1 a 7) do monstro sorteado: /uv/uv-1.png ... /uv/uv-7.png
     const uv = (monstro ?? dados.fantasmas[0]).uv
-    const fundo = urlImagem(`/uv/uv-${uv}.png`)
-    const mascara = urlImagem(MASCARA)
+    const fundo = `/uv/uv-${uv}.png`
+    const mascara = MASCARA
 
     // deslocamento da máscara (px) em relação ao centro do container
     const [pos, setPos] = useState({ x: 0, y: 0 })

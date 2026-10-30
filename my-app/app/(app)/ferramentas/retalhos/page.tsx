@@ -4,7 +4,7 @@ import { useGuardaFerramenta } from "../../../lib/useGuardaFerramenta"
 
 import { useRef, useState, type PointerEvent } from "react";
 import dados from "../../../dataBank/fantasmas.json";
-import Imagem from "../../../components/imagem";
+import Image from "next/image";
 import { useJogador } from "../../../context/JogadorContext";
 
 type Disco = "azul" | "vermelho" | "verde"
@@ -79,7 +79,7 @@ export default function Retalhos() {
                 onPointerCancel={soltar}
                 className={`w-full aspect-square bg-zinc-200 my-8 relative rounded-full ring-4 ${anelAtual} touch-none select-none cursor-grab active:cursor-grabbing`}>
                 {CAMADAS.map((d) => (
-                    <Imagem
+                    <Image
                         key={d.id}
                         src={`/retalhos/${d.prefixo}-${ordem}.svg`} alt={d.nome} fill draggable={false}
                         className="opacity-75 pointer-events-none"

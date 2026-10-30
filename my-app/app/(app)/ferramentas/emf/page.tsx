@@ -8,19 +8,14 @@ import { useGuardaFerramenta } from "../../../lib/useGuardaFerramenta"
 import { concluirFerramenta } from "../../../lib/jogador"
 
 const QTD_CIRCULOS = 5
-const MIN = -2
-const MAX = 2
+const MIN = -3
+const MAX = 3
 const VERDE = [22, 163, 74] // green-600
-const PASSO_PX = 24 // quantos pixels o círculo anda a cada unidade de amplitude/altitude
+// até onde o ponto pode ir a partir do centro, em % do quadro (50 = encostaria na borda)
+const ALCANCE_PCT = 45
 
-// posição inicial (em %) de cada círculo dentro do quadro
-const ANCORAS = [
-    { x: 22, y: 30 },
-    { x: 50, y: 22 },
-    { x: 78, y: 30 },
-    { x: 34, y: 72 },
-    { x: 66, y: 72 },
-]
+/** valor (MIN..MAX) -> deslocamento em % a partir do centro (-ALCANCE_PCT..+ALCANCE_PCT) */
+const paraPct = (valor: number) => (valor / MAX) * ALCANCE_PCT
 
 export default function Ferramentas() {
     useGuardaFerramenta(1)
@@ -87,13 +82,15 @@ export default function Ferramentas() {
             <div className="relative flex-1 w-full border-3 border-orange-300 rounded-md">
                 {Array.from({ length: QTD_CIRCULOS }, (_, i) => (
                     <button key={i} type="button" onClick={() => setAtual(i)} aria-label={`Círculo ${i + 1}`}
-                        className="absolute w-4 h-4 rounded-full transition-[transform,background-color] duration-200"
+                        className="absolute w-4 h-4 rounded-full transition-[left,top,background-color] duration-200"
                         style={{
-                            left: `${ANCORAS[i].x}%`,
-                            top: `${ANCORAS[i].y}%`,
+                            // todos começam no centro; amplitude move na horizontal e altitude na vertical (maior = mais para cima)
+                            left: `${50 + paraPct(valores[i][0])}%`,
+                            top: `${50 - paraPct(valores[i][1])}%`,
+                            transform: "translate(-50%, -50%)",
                             backgroundColor: corCirculo(i),
-                            // amplitude desloca na horizontal; altitude, na vertical (maior = mais para cima)
-                            transform: `translate(-50%, -50%) translate(${valores[i][0] * PASSO_PX}px, ${-valores[i][1] * PASSO_PX}px)`,
+                            // o ponto selecionado fica por cima dos outros (começam sobrepostos)
+                            zIndex: atual === i ? 10 : 1,
                         }}>
                     </button>
                 ))}
@@ -120,11 +117,7 @@ export default function Ferramentas() {
                                 onChange={(e) => alterar(s.eixo, parseInt(e.target.value))}
                                 className="h-1 w-full"/>
                             <div className="w-full flex items-center justify-between text-sm">
-                                <p>•</p>
-                                <p>•</p>
-                                <p>•</p>
-                                <p>•</p>
-                                <p>•</p>
+                                {Array.from({ length: MAX - MIN + 1 }, (_, k) => <p key={k}>•</p>)}
                             </div>
                         </div>
                     ))}

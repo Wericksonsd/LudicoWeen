@@ -5,7 +5,7 @@ export type Fantasma = {
     regiao: string
     motivacao: string
     surgimento: string
-    /** 5 pares [amplitude, altitude], um por círculo do leitor EMF; cada valor vai de -2 a 2 */
+    /** 5 pares [amplitude, altitude], um por círculo do leitor EMF; cada valor vai de -3 a 3 */
     emf: number[][]
     /** 1 a 7 (1-2 presença baixa, 3-5 média, 6-7 alta); também escolhe a imagem de fundo da lanterna UV */
     uv: number
