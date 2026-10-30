@@ -54,8 +54,14 @@ export default function UV() {
             <Titulo
             titulo="Lanterna UV"
             subTitulo="Rastreio espectros plasmáticos deixados pelas entidades."
-            hiddenVar = {true}
-            helpTExt="Arraste a lanterna sobre a área para revelar os espectros registrados pela luz UV. Analise a cor e o número de espectros para determinar a presença da entidade."
+            hiddenVar={true}
+            helpTExt={`Arraste a lanterna sobre a área para revelar os espectros registrados pela luz UV. Analise a cor e o número de espectros para determinar a presença da entidade.
+
+            1-2 > PRESENÇA BAIXA
+
+            3-5 > PRESENÇA MÉDIA
+
+            6-7 > PRESENÇA ALTA`}
             />
             <div
                 ref={areaRef}
@@ -66,7 +72,7 @@ export default function UV() {
                 className="flex-1 w-full relative overflow-hidden rounded-md bg-zinc-950 touch-none select-none cursor-grab active:cursor-grabbing">
                 {/* a imagem de fundo só aparece onde a máscara (a "luz") passa */}
                 <div
-                    className="absolute inset-0 bg-cover bg-center"
+                    className="absolute inset-0 bg-contain bg-no-repeat bg-center"
                     style={{
                         backgroundImage: `url(${fundo})`,
                         maskImage: `url(${mascara})`,

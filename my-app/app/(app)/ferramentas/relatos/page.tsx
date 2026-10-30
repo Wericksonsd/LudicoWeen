@@ -14,6 +14,7 @@ export default function Relatos() {
     const [aberto, setAberto] = useState<number | null>(null)
 
     // os 3 textos vêm do monstro sorteado para o agente (textoRelato)
+    const titulo = (monstro ?? dados.fantasmas[0]).tituloRelato
     const textos = (monstro ?? dados.fantasmas[0]).textoRelato
 
     return (
@@ -36,10 +37,11 @@ export default function Relatos() {
             {aberto !== null && (
                 <div className="fixed top-0 left-0 h-dvh w-dvw bg-zinc-900/80 z-10 p-6 flex items-center justify-center">
                     <div
-                        className="max-h-full w-full rounded-lg p-6 flex flex-col gap-4 text-zinc-900 bg-stone-200 bg-cover bg-center"
+                        className="max-h-full w-full h-auto rounded-lg p-6 flex flex-col gap-4 text-zinc-900 bg-cover bg-center bg-no-repeat"
                         style={{ backgroundImage: `url(/relatos/jornal.png)` }}>
-                        <h1 className="text-center text-xl font-black uppercase">Relato {aberto + 1}</h1>
-                        <p className="overflow-y-auto text-sm leading-relaxed whitespace-pre-line">
+                        <h1 className="text-center text-xl font-black uppercase mb-4">Relato {aberto + 1}</h1>
+                        <p className="m-auto text-xl font-bold">{titulo[aberto] ?? "..."}</p>
+                        <p className="overflow-y-auto text-sm text-center leading-relaxed whitespace-pre-line mb-8">
                             {textos[aberto] ?? "..."}
                         </p>
                         <button type="button" onClick={() => setAberto(null)}

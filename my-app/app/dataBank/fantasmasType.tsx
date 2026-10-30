@@ -11,6 +11,7 @@ export type Fantasma = {
     uv: number
     agressao: string
     /** 3 relatos mostrados na ferramenta Relatos */
+    tituloRelato: string[]
     textoRelato: string[]
     /** 1 a 3: conjunto de imagens do Resquício e "ligação" (1 Vingança, 2 Morte, 3 Tormento) */
     ordem: number
