@@ -8,14 +8,18 @@
       "regiao": "Ásia",
       "motivacao": "Devorar a carne de cadáveres humanos e saquear sepulturas",
       "surgimento": "Século VIII",
-      "emf": [[-2, -2], [2, -3], [-1, 1], [-3, -3], [2, 1]],
+      "emf": [[1, 3], [2, -2], [3, -2], [-3, -3], [2, 1]],
       "uv": 5,
       "agressao": "baixa",
-      "tituloRelato": ["781年9月9日", "862年5月3日", "1721年10月15日"],
+      "tituloRelato": [
+        "781年9月9日",
+        "862年5月3日",
+        "1721年10月15日"
+      ],
       "textoRelato": [
-        "Escavadores relatam desaparecimento de restos mortais em sepulturas próximas a um vilarejo persa. Marcas de garras foram encontradas nas lápides.",
-        "Moradores de Bagdá relatam uma criatura rondando cemitérios durante a madrugada. Ossos humanos foram encontrados espalhados pelas ruas.",
-        "Vigias noturnos registram ruídos de escavação e avistamentos de uma figura pálida próxima às criptas abandonadas."
+        "Escavadores relatam movimentações incomuns em um antigo cemitério próximo a um vilarejo persa.",
+        "Moradores de Bagdá registram ocorrências inexplicáveis nas proximidades de antigas sepulturas.",
+        "Vigias noturnos relatam ter encontrado sinais de presença desconhecida em criptas abandonadas."
       ],
       "ordem": 3,
       "imagem": "/ghoull.png"
@@ -30,11 +34,15 @@
       "emf": [[2, -3], [2, 1], [-1, 1], [3, 1], [2, -3]],
       "uv": 3,
       "agressao": "média",
-      "tituloRelato": ["782年1月12日", "1243年8月7日", "1671年3月20日"],
+      "tituloRelato": [
+        "782年1月12日",
+        "1243年8月7日",
+        "1671年3月20日"
+      ],
       "textoRelato": [
-        "Camponeses japoneses relatam aparição de uma criatura com chifres nas proximidades de um templo. Diversas plantações foram destruídas durante a noite.",
-        "Um monge registra relatos de uma entidade colossal carregando um bastão de ferro, vista durante uma tempestade nas montanhas.",
-        "Habitantes de uma aldeia relatam estrondos e gritos vindos de uma floresta. Uma figura avermelhada foi avistada entre as árvores."
+        "Camponeses japoneses relatam acontecimentos incomuns nas proximidades de um antigo templo.",
+        "Um monge registra relatos de uma presença desconhecida nas montanhas durante uma forte tempestade.",
+        "Habitantes de uma aldeia relatam ruídos inexplicáveis vindos de uma floresta próxima."
       ],
       "ordem": 1,
       "imagem": "/oni.png"
@@ -49,11 +57,15 @@
       "emf": [[2, 3], [-3, 2], [2, -1], [2, 1], [-3, 2]],
       "uv": 5,
       "agressao": "baixa",
-      "tituloRelato": ["April 4, 860", "June 16, 1712", "November 2, 1924"],
+      "tituloRelato": [
+        "April 4, 860",
+        "June 16, 1712",
+        "November 2, 1924"
+      ],
       "textoRelato": [
-        "Habitantes de uma residência relatam aparição translúcida de um antigo morador, sempre próxima ao quarto onde faleceu.",
-        "Uma família registra manifestações recorrentes de uma silhueta humana próxima à lareira. Vozes desconhecidas são ouvidas durante a madrugada.",
-        "Funcionários de um antigo hospital relatam figura nebulosa percorrendo corredores vazios, desaparecendo ao ser abordada."
+        "Habitantes de uma residência relatam acontecimentos inexplicáveis após o falecimento de um antigo morador.",
+        "Uma família registra ocorrências estranhas em diferentes cômodos da propriedade durante a madrugada.",
+        "Funcionários de um antigo hospital relatam avistamentos incomuns nos corredores desativados."
       ],
       "ordem": 1,
       "imagem": "/espirito.png"
@@ -63,16 +75,20 @@
       "nome": "Banshee",
       "descricao": "Corpo feminino, pele muito pálida, olhos vermelhos e inchados de tanto chorar, e cabelos longos",
       "regiao": "Europa",
-      "motivacao": "Indicar presságio de morte",
+      "motivacao": "Indicar presságio de morte ",
       "surgimento": "Século VIII",
       "emf": [[-1, 1], [3, -3], [-2, -2], [-2, -3], [1, -2]],
       "uv": 7,
       "agressao": "baixa",
-      "tituloRelato": ["IV March DCCII", "XII Octobris MDCCXLVIII", "XXI Februarii MDCCCLXIII"],
+      "tituloRelato": [
+        "IV March DCCII",
+        "XII Octobris MDCCXLVIII",
+        "XXI Februarii MDCCCLXIII"
+      ],
       "textoRelato": [
         "Testemunhas relatam aparição feminina em vinhedo próximo à cidade de Roma.",
-        "Moradores de uma propriedade irlandesa relatam gritos femininos próximos à residência. Na manhã seguinte, foi anunciada a morte de um membro da família.",
-        "Viajantes relatam figura de cabelos longos chorando próximo a um castelo. O som de seus lamentos foi ouvido por toda a região."
+        "Moradores de uma propriedade irlandesa relatam gritos desconhecidos próximos à residência durante a madrugada.",
+        "Viajantes relatam uma presença feminina próxima a um antigo castelo. Os registros mencionam acontecimentos posteriores incomuns."
       ],
       "ordem": 1,
       "imagem": "/banshee.png"
@@ -87,11 +103,15 @@
       "emf": [[-2, -3], [2, -2], [1, 2], [2, -3], [2, 2]],
       "uv": 1,
       "agressao": "média",
-      "tituloRelato": ["August 15, 1572", "July 3, 1689", "April 19, 1812"],
+      "tituloRelato": [
+        "August 15, 1572",
+        "July 3, 1689",
+        "April 19, 1812"
+      ],
       "textoRelato": [
-        "Pescadores relatam ouvir uma mulher chorando às margens de um rio mexicano. Uma figura vestida de branco foi vista desaparecendo na neblina.",
-        "Moradores relatam gritos de uma mulher procurando por seus filhos próximos às águas. Nenhuma pessoa foi encontrada nas proximidades.",
-        "Viajantes registram aparição feminina acompanhando o curso do rio durante a madrugada. Seus lamentos foram ouvidos a grandes distâncias."
+        "Pescadores relatam acontecimentos inexplicáveis às margens de um rio mexicano durante a madrugada.",
+        "Moradores de uma pequena comunidade registram relatos de uma figura desconhecida próxima às águas.",
+        "Viajantes relatam avistamento incomum nas proximidades de um rio. O caso permanece sem explicação."
       ],
       "ordem": 2,
       "imagem": "/la_llorona.png"
@@ -106,11 +126,15 @@
       "emf": [[3, -3], [1, 3], [3, 2], [-2, -1], [-2, -2]],
       "uv": 6,
       "agressao": "média",
-      "tituloRelato": ["June 7, 1821", "September 14, 1872", "October 26, 1923"],
+      "tituloRelato": [
+        "June 7, 1821",
+        "September 14, 1872",
+        "October 26, 1923"
+      ],
       "textoRelato": [
-        "Habitantes de uma fazenda brasileira relatam criatura ressequida caminhando entre árvores mortas. A vegetação próxima apresentou sinais de deterioração.",
-        "Lenhadores relatam avistamento de um corpo extremamente magro próximo a uma estrada rural. Animais recusam-se a atravessar o local.",
-        "Moradores de um vilarejo registram ruídos de passos durante a noite e avistamento de uma figura cadavérica entre as plantações."
+        "Habitantes de uma fazenda brasileira relatam acontecimentos estranhos em uma área isolada da propriedade.",
+        "Lenhadores registram avistamento de uma figura desconhecida próximo a uma estrada rural.",
+        "Moradores de um vilarejo relatam ocorrências inexplicáveis em uma região afastada das residências."
       ],
       "ordem": 2,
       "imagem": "/corpo_seco.png"
@@ -125,11 +149,15 @@
       "emf": [[-1, 2], [-1, -2], [-3, 3], [-1, -1], [-3, -1]],
       "uv": 2,
       "agressao": "média",
-      "tituloRelato": ["1768年11月9日", "1968年5月15日", "1979年12月3日"],
+      "tituloRelato": [
+        "1768年11月9日",
+        "1968年5月15日",
+        "1979年12月3日"
+      ],
       "textoRelato": [
-        "Habitantes de uma vila japonesa relatam encontros com uma mulher mascarada que aborda viajantes durante a noite.",
-        "Estudantes relatam presença de uma mulher usando máscara cirúrgica nas ruas próximas à escola. Testemunhas afirmam que ela questionava os transeuntes.",
-        "Policiais registram denúncias de uma figura feminina de sobretudo vermelho rondando ruas desertas e abordando pedestres."
+        "Habitantes de uma vila japonesa relatam encontros inexplicáveis em ruas pouco movimentadas durante a noite.",
+        "Estudantes registram relatos de uma figura feminina desconhecida nas proximidades da escola.",
+        "Policiais recebem denúncias sobre avistamentos recorrentes em diferentes bairros da cidade."
       ],
       "ordem": 3,
       "imagem": "/kuchisake_onna.png"
@@ -144,11 +172,15 @@
       "emf": [[-3, 1], [2, 1], [3, -3], [1, 1], [-1, -3]],
       "uv": 4,
       "agressao": "baixa",
-      "tituloRelato": ["788年1月13日", "1681年7月22日", "1874年10月8日"],
+      "tituloRelato": [
+        "788年1月13日",
+        "1681年7月22日",
+        "1874年10月8日"
+      ],
       "textoRelato": [
-        "Moradores de uma propriedade japonesa relatam aparição de uma mulher vestida de branco após a morte de uma antiga residente.",
-        "Uma família registra manifestações inexplicáveis após disputa envolvendo uma herança. Uma figura de cabelos negros foi vista nos corredores.",
-        "Funcionários de uma residência relatam aparições femininas acompanhadas de quedas bruscas de temperatura e objetos deslocados."
+        "Moradores de uma propriedade japonesa relatam acontecimentos incomuns após a morte de uma antiga residente.",
+        "Uma família registra manifestações inexplicáveis após uma antiga disputa familiar.",
+        "Funcionários de uma residência relatam ocorrências estranhas acompanhadas de mudanças repentinas na temperatura."
       ],
       "ordem": 2,
       "imagem": "/onryo.png"
@@ -163,11 +195,15 @@
       "emf": [[1, 3], [-2, 2], [-1, -2], [3, -1], [-1, -2]],
       "uv": 2,
       "agressao": "alta",
-      "tituloRelato": ["October 17, 1776", "November 4, 1781", "September 28, 1822"],
+      "tituloRelato": [
+        "October 17, 1776",
+        "November 4, 1781",
+        "September 28, 1822"
+      ],
       "textoRelato": [
-        "Soldados relatam avistamento de um cavaleiro sem cabeça próximo a um antigo campo de batalha durante a Revolução Americana.",
-        "Viajantes relatam ouvir cascos de cavalo durante a madrugada. Uma figura militar sem cabeça foi vista atravessando a estrada.",
-        "Moradores de uma região rural registram aparição de um cavaleiro montado em um animal negro, desaparecendo próximo a um antigo cemitério."
+        "Soldados relatam avistamento de uma figura incomum próximo a um antigo campo de batalha durante a Revolução Americana.",
+        "Viajantes relatam ruídos inexplicáveis em uma estrada rural durante a madrugada.",
+        "Moradores de uma região afastada registram avistamentos recorrentes próximos a um antigo cemitério."
       ],
       "ordem": 1,
       "imagem": "/cavaleiro_sem_cabeca.png"
@@ -182,11 +218,15 @@
       "emf": [[-3, 2], [3, 3], [-3, 1], [-3, -3], [-3, 2]],
       "uv": 5,
       "agressao": "baixa",
-      "tituloRelato": ["XII Maii MCDLXXXII", "XVIII Ianuarii MDCLXXIII", "VI Augusti MDCCCXIV"],
+      "tituloRelato": [
+        "XII Maii MCDLXXXII",
+        "XVIII Ianuarii MDCLXXIII",
+        "VI Augusti MDCCCXIV"
+      ],
       "textoRelato": [
-        "Serviçais de um castelo europeu relatam aparição de uma mulher vestida de branco próxima à antiga torre da propriedade.",
-        "Mordomos registram avistamento de uma figura feminina nos corredores de um castelo. Sua aparição antecedeu a morte de um nobre.",
-        "Viajantes relatam uma mulher de vestido branco observando a estrada próxima a uma antiga propriedade aristocrática."
+        "Serviçais de um castelo europeu relatam aparição feminina próxima à antiga torre da propriedade.",
+        "Mordomos registram acontecimentos inexplicáveis nos corredores de um castelo pertencente à nobreza.",
+        "Viajantes relatam avistamento de uma figura feminina próxima a uma antiga propriedade aristocrática."
       ],
       "ordem": 1,
       "imagem": "/dama_branca.png"
@@ -201,11 +241,15 @@
       "emf": [[-1, 2], [-1, 1], [-1, -3], [-3, 3], [2, -3]],
       "uv": 7,
       "agressao": "baixa",
-      "tituloRelato": ["1742年6月3日", "1869年3月14日", "1912年4月27日"],
+      "tituloRelato": [
+        "1742年6月3日",
+        "1869年3月14日",
+        "1912年4月27日"
+      ],
       "textoRelato": [
-        "Habitantes de uma vila na Malásia relatam gritos femininos vindos de uma árvore durante a madrugada. Um odor intenso de flores foi percebido.",
-        "Trabalhadores de uma plantação relatam aparição de uma mulher pálida vestida de branco entre as árvores. Animais abandonaram o local.",
-        "Moradores de uma região costeira registram gritos agudos e avistamentos de uma figura feminina de cabelos compridos próxima às residências."
+        "Habitantes de uma vila na Malásia relatam ruídos desconhecidos vindos de uma região arborizada durante a madrugada.",
+        "Trabalhadores de uma plantação registram avistamento de uma figura feminina em uma área isolada.",
+        "Moradores de uma região costeira relatam acontecimentos inexplicáveis próximos às residências."
       ],
       "ordem": 3,
       "imagem": "/pontianak.png"
@@ -220,11 +264,15 @@
       "emf": [[-1, -2], [2, -2], [2, -3], [3, -3], [2, -2]],
       "uv": 2,
       "agressao": "média",
-      "tituloRelato": ["XIX Octobris DCCCLXII", "VI Decembris MCXLVIII", "XXII Ianuarii MDCCXIX"],
+      "tituloRelato": [
+        "XIX Octobris DCCCLXII",
+        "VI Decembris MCXLVIII",
+        "XXII Ianuarii MDCCXIX"
+      ],
       "textoRelato": [
-        "Exploradores nórdicos relatam que uma sepultura foi encontrada aberta, com marcas de passos pesados ao redor de um túmulo.",
-        "Camponeses islandeses relatam aparição de um guerreiro de pele azulada protegendo uma antiga tumba repleta de riquezas.",
-        "Escavadores registram movimentos inexplicáveis em uma câmara funerária viking. Uma figura semelhante a um cadáver foi avistada."
+        "Exploradores nórdicos relatam alterações inexplicáveis em uma antiga sepultura encontrada durante uma expedição.",
+        "Camponeses islandeses registram avistamento de uma figura desconhecida nas proximidades de uma tumba antiga.",
+        "Escavadores relatam movimentações incomuns em uma câmara funerária viking."
       ],
       "ordem": 2,
       "imagem": "/draugr.png"
@@ -239,11 +287,15 @@
       "emf": [[3, -1], [-1, 3], [-3, 1], [1, -1], [2, -3]],
       "uv": 1,
       "agressao": "baixa",
-      "tituloRelato": ["1621年2月14日", "1765年9月8日", "1892年6月17日"],
+      "tituloRelato": [
+        "1621年2月14日",
+        "1765年9月8日",
+        "1892年6月17日"
+      ],
       "textoRelato": [
-        "Habitantes de uma aldeia chinesa relatam aparição de um cadáver trajado com vestes imperiais, movendo-se rigidamente durante a noite.",
-        "Viajantes relatam encontros com uma figura de braços estendidos e movimentos incomuns próxima a antigos cemitérios.",
-        "Moradores registram desaparecimento de animais e avistamento de uma criatura pálida usando vestes tradicionais da dinastia Qing."
+        "Habitantes de uma aldeia chinesa relatam acontecimentos estranhos próximos a um antigo local de sepultamento.",
+        "Viajantes registram avistamento de uma figura desconhecida nas proximidades de um vilarejo.",
+        "Moradores relatam ocorrências inexplicáveis em uma região marcada por antigas tradições funerárias."
       ],
       "ordem": 1,
       "imagem": "/jiangshi.png"
@@ -258,11 +310,15 @@
       "emf": [[-2, -1], [-3, -3], [2, 2], [1, 1], [-1, -2]],
       "uv": 6,
       "agressao": "média",
-      "tituloRelato": ["1098年7月11日", "1271年10月23日", "1786年3月5日"],
+      "tituloRelato": [
+        "1098年7月11日",
+        "1271年10月23日",
+        "1786年3月5日"
+      ],
       "textoRelato": [
-        "Ascetas indianos relatam vozes desconhecidas vindas de árvores próximas a um crematório abandonado. Nenhuma presença humana foi identificada.",
-        "Viajantes relatam avistamento de uma figura invertida sobre os galhos de uma árvore próxima a um cemitério.",
-        "Sacerdotes registram relatos de um espírito habitando corpos abandonados, fazendo perguntas sobre acontecimentos ainda não ocorridos."
+        "Ascetas indianos relatam vozes desconhecidas nas proximidades de um antigo local de cremação.",
+        "Viajantes relatam acontecimentos inexplicáveis próximos a uma árvore localizada em uma região isolada.",
+        "Sacerdotes registram relatos sobre uma presença desconhecida em antigos terrenos funerários."
       ],
       "ordem": 3,
       "imagem": "/vetala.png"
@@ -277,11 +333,15 @@
       "emf": [[1, 2], [-3, -1], [-1, 1], [-1, 2], [-3, -1]],
       "uv": 3,
       "agressao": "média",
-      "tituloRelato": ["September 21, 1643", "January 12, 1771", "November 3, 1897"],
+      "tituloRelato": [
+        "September 21, 1643",
+        "January 12, 1771",
+        "November 3, 1897"
+      ],
       "textoRelato": [
-        "Marinheiros relatam avistamento de um navio fantasma próximo ao Cabo da Boa Esperança durante uma forte tempestade.",
-        "Tripulação de uma embarcação mercante registra aparição de um navio antigo com velas iluminadas, navegando contra a corrente.",
-        "Capitão relata avistamento de uma embarcação deteriorada desaparecendo no horizonte. Nenhum registro de sua identificação foi encontrado."
+        "Marinheiros relatam avistamento de uma embarcação desconhecida próximo ao Cabo da Boa Esperança durante uma tempestade.",
+        "Tripulação de uma embarcação mercante registra uma ocorrência inexplicável em alto-mar.",
+        "Capitão relata avistamento de uma embarcação desconhecida desaparecendo no horizonte. Nenhum registro de sua identificação foi encontrado."
       ],
       "ordem": 2,
       "imagem": "/holandês_voador.png"
@@ -296,14 +356,18 @@
       "emf": [[2, -3], [3, -3], [1, 2], [1, 3], [-3, -2]],
       "uv": 2,
       "agressao": "baixa",
-      "tituloRelato": ["October 14, 1921", "December 7, 1954", "May 29, 1983"],
+      "tituloRelato": [
+        "October 14, 1921",
+        "December 7, 1954",
+        "May 29, 1983"
+      ],
       "textoRelato": [
-        "Moradores de uma cidade americana relatam aparição feminina em espelhos antigos após uma sequência de acontecimentos inexplicáveis.",
-        "Estudantes relatam reflexos de uma mulher desconhecida em espelhos de um banheiro escolar, mesmo sem ninguém presente.",
-        "Investigadores registram manifestações em uma residência, onde espelhos apresentam reflexos de uma figura feminina ausente do ambiente."
-    ],
-    "ordem": 2,
-    "imagem": "/bloody_mary.png"
+        "Moradores de uma cidade americana relatam acontecimentos inexplicáveis envolvendo espelhos em uma antiga residência.",
+        "Estudantes registram ocorrências incomuns em um banheiro escolar após o horário de funcionamento.",
+        "Investigadores relatam manifestações inexplicáveis em uma residência, sem encontrar uma origem para os acontecimentos."
+      ],
+      "ordem": 2,
+      "imagem": "/bloody_mary.png"
     }
-]
+  ]
 }
