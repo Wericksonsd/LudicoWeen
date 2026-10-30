@@ -3,7 +3,7 @@
         {
             "id": 1,
             "nome": "Leitor EMF",
-            "descricao": "Detecta campos magnéticos para determinar a agresão de um fantasma.",
+            "descricao": "Euqalize o campo magnético para detectar a presença do fantasma.",
             "icon": "PanelTopBottomDashed",
             "linkTo": "/ferramentas/emf",
             "codigoQr": "CASSIO-PLACEHOLDER-EMF"
@@ -19,7 +19,7 @@
         {
             "id": 3,
             "nome": "Resquícios",
-            "descricao": "Recupere antigas notícias e lendas para obter melhores informações.",
+            "descricao": "Restaure o disco contendo a marca de ligação do fantasma",
             "icon": "KeyboardMusic",
             "linkTo": "/ferramentas/retalhos",
             "codigoQr": "CASSIO-PLACEHOLDER-RESQUICIOS"

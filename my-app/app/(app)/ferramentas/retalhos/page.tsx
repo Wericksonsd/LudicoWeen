@@ -3,6 +3,7 @@
 import { useGuardaFerramenta } from "../../../lib/useGuardaFerramenta"
 
 import { useRef, useState, type PointerEvent } from "react";
+import Titulo from "@/app/components/titulo";
 import dados from "../../../dataBank/fantasmas.json";
 import Image from "next/image";
 import { useJogador } from "../../../context/JogadorContext";
@@ -67,9 +68,18 @@ export default function Retalhos() {
 
     return (
         <div className="flex-1 p-6 flex flex-col">
-            <h1 className="text-2xl font-bold text-center">Resquícios</h1>
-            <p className="text-center text-sm">Junte os pedaços de jornais para revelar seu passado.</p>
-            <p className="text-center text-xs text-zinc-400">Escolha um disco e arraste o círculo para girá-lo.</p>
+            <Titulo
+                    titulo="Lanterna UV"
+                    subTitulo="Rastreio espectros plasmáticos deixados pelas entidades."
+                    hiddenVar={true}
+                    helpTExt={`Arraste a lanterna sobre a área para revelar os espectros registrados pela luz UV. Analise a cor e o número de espectros para determinar a presença da entidade.
+        
+                    1-2 > PRESENÇA BAIXA
+        
+                    3-5 > PRESENÇA MÉDIA
+        
+                    6-7 > PRESENÇA ALTA`}
+                    />
 
             <div
                 ref={areaRef}
