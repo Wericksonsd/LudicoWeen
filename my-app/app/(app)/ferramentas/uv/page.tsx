@@ -55,13 +55,13 @@ export default function UV() {
             titulo="Lanterna UV"
             subTitulo="Rastreio espectros plasmáticos deixados pelas entidades."
             hiddenVar={true}
-            helpTExt={`Arraste a lanterna sobre a área para revelar os espectros registrados pela luz UV. Analise a cor e o número de espectros para determinar a presença da entidade.
+            helpTExt={`Arraste a lanterna sobre a área para revelar os espectros registrados pela luz UV. Analise a cor e o número de espectros para determinar a agressividade da entidade.
 
-            1-2 > PRESENÇA BAIXA
+            1-2 > BAIXA
 
-            3-5 > PRESENÇA MÉDIA
+            3-5 > MÉDIA
 
-            6-7 > PRESENÇA ALTA`}
+            6-7 > ALTA`}
             />
             <div
                 ref={areaRef}

@@ -30,7 +30,7 @@ export default function Titulo(Props: Props) {
                 ?
             </button>
             {modalTips && (
-                <div className="fixed h-dvh w-dvw p-12 bg-zinc-900/80 z-10 top-0 left-0 flex items-center justify-center">
+                <div className="fixed h-dvh w-dvw p-12 bg-zinc-900/80 z-100 top-0 left-0 flex items-center justify-center">
                     <div className="w-full bg-orange-300 rounded-lg p-4 flex flex-col gap-8 items-center justify-center text-zinc-900 font-semibold text-center">
                         <p style={{ whiteSpace: "pre-line" }}>{Props.helpTExt}</p>
                         {Props.imagem && (

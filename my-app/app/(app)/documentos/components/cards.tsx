@@ -23,7 +23,7 @@ export default function CardsFantasma({ fantasmas, liberado }: Props) {
                 <Image
                     src={liberado ? fantasmas.imagem : "/bloqueado.png"}
                     alt={liberado ? fantasmas.nome : "Imagem bloqueada"}
-                    height={400} width={200} loading="eager" className="flex-1 mix-blend-multiply"/>
+                    height={350} width={160} loading="eager" className="flex-1 mix-blend-multiply"/>
                 <div className="text-right text-xs flex flex-col gap-2 px-4 pb-4 items-end">
                     <p><span className="font-bold">Região:</span> {info(fantasmas.regiao)}</p>
                     <p><span className="font-bold">Origem:</span> {info(fantasmas.surgimento)}</p>
