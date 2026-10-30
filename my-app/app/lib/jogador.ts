@@ -300,6 +300,41 @@ export async function resetarProgresso(uid: string, tudoLiberado: boolean) {
     await atualizar(uid, [[["progresso"], progressoInicial(tudoLiberado)]])
 }
 
+/* ----- sair ----- */
+
+/** Missão concluída = o monstro atual foi capturado (missão fracassada NÃO conta). */
+export function missaoConcluida(jogador: Jogador | null): boolean {
+    return jogador?.progresso.captura.status === "capturado"
+}
+
+function sortearOutroMonstroId(atual: number): number {
+    const outros = fantasmas.fantasmas.map((f) => f.id).filter((id) => id !== atual)
+    return outros.length ? outros[Math.floor(Math.random() * outros.length)] : atual
+}
+
+/**
+ * Botão de sair: se o agente já capturou o monstro atual, o progresso é resetado
+ * (e ele recebe outro monstro, diferente do anterior) antes de sair; senão só sai.
+ * O administrador não é resetado aqui (ele tem o botão próprio no painel).
+ */
+export function encerrarSessao(uid: string): void {
+    if (uid !== UID_ADMIN) {
+        try {
+            const j = lerDocumento(uid)
+            if (j && missaoConcluida(j)) {
+                salvarDocumento(uid, {
+                    ...j,
+                    monstroId: sortearOutroMonstroId(j.monstroId),
+                    progresso: progressoInicial(false),
+                })
+            }
+        } catch (e) {
+            console.error(e)
+        }
+    }
+    sair()
+}
+
 /* ----- captura ----- */
 
 export type ResultadoCaptura =

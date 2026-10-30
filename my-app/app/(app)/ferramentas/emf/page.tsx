@@ -32,17 +32,13 @@ export default function Ferramentas() {
     const jaConcluida = !!jogador?.progresso.ferramentas["1"]?.concluida
 
     /**
-     * Cada valor certo (amplitude e altitude) vale 50% de branco.
-     * Quanto mais perto do valor certo, mais claro o círculo; os 2 exatos = branco total.
+     * Cor em degraus (não gradual):
+     * nenhum eixo certo = verde; um eixo certo = 50% branco; os dois certos = 100% branco.
      */
     function brilho(i: number) {
         const [amp, alt] = valores[i]
         const [alvoAmp, alvoAlt] = alvos[i]
-        const proximidade = (v: number, alvo: number) => {
-            const distMax = Math.max(alvo - MIN, MAX - alvo)
-            return 1 - Math.abs(v - alvo) / distMax
-        }
-        return (proximidade(amp, alvoAmp) + proximidade(alt, alvoAlt)) / 2
+        return (amp === alvoAmp ? 0.5 : 0) + (alt === alvoAlt ? 0.5 : 0)
     }
 
     function corCirculo(i: number) {
@@ -77,9 +73,10 @@ export default function Ferramentas() {
                 titulo="Leitor EMF"
                 subTitulo="Leia e ajuste a frequência de campos eletromagnéticos"
                 hiddenVar={false}
-                helpTExt="Escolha um dos 5 círculos pelos botões numerados e ajuste amplitude (horizontal) e altitude (vertical). O círculo se move enquanto você ajusta e fica mais branco quando chega perto do valor certo. Quando todos estiverem totalmente brancos, o sinal está sincronizado." />
+                helpTExt="Escolha um dos 5 círculos pelos botões numerados e ajuste amplitude (horizontal) e altitude (vertical). O círculo se move enquanto você ajusta: com um valor certo ele fica meio branco e, com os dois certos, totalmente branco. Quando todos estiverem totalmente brancos, o sinal está sincronizado." />
 
-            <div className="relative flex-1 w-full border-3 border-orange-300 rounded-md">
+            <div className="relative w-full aspect-square border-3 border-orange-300 rounded-md bg-center bg-cover"
+                style={{ backgroundImage: "url('/fundoEMF.png')" }}>
                 {Array.from({ length: QTD_CIRCULOS }, (_, i) => (
                     <button key={i} type="button" onClick={() => setAtual(i)} aria-label={`Círculo ${i + 1}`}
                         className="absolute w-4 h-4 rounded-full transition-[left,top,background-color] duration-200"

@@ -1,12 +1,17 @@
 'use client'
 
 import { useState } from "react"
+import Image from "next/image"
 
 type Props = {
     titulo: string
     subTitulo: string
     hiddenVar: boolean
     helpTExt: string
+    /** (opcional) caminho da imagem mostrada acima do título, ex.: "/uv/icone.png" */
+    imagem?: string
+    /** (opcional) texto alternativo da imagem */
+    imagemAlt?: string
 }
 
 export default function Titulo(Props: Props) {
@@ -15,6 +20,10 @@ export default function Titulo(Props: Props) {
     return (
         <div className="w-full flex relative">
             <div className="w-full flex flex-col items-center justify-between ">
+                {Props.imagem && (
+                    <Image src={Props.imagem} alt={Props.imagemAlt ?? ""} width={96} height={96}
+                        className="h-16 w-auto object-contain mb-2" />
+                )}
                 <h1 className="text-2xl font-bold text-center">{Props.titulo}</h1>
                 <p className="text-center text-zinc-300 text-sm mb-4">
                     {Props.subTitulo}

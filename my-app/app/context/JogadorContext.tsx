@@ -5,6 +5,7 @@ import fantasmas from "../dataBank/fantasmas.json"
 import type { Fantasma } from "../dataBank/fantasmasType"
 import {
     assinarLocal,
+    encerrarSessao,
     garantirJogador,
     interpretarDocumento,
     interpretarSessao,
@@ -73,7 +74,8 @@ export function JogadorProvider({ children }: { children: ReactNode }) {
     const carregando = !pronto || (!!user && !jogador && !erro)
 
     async function sair() {
-        sairDaSessao()
+        if (user) encerrarSessao(user.uid)
+        else sairDaSessao()
     }
 
     return (
