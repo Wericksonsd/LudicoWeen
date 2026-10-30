@@ -1,25 +1,21 @@
 'use client'
 
-import { createContext, useContext, useEffect, useRef, useState, type ReactNode } from "react"
-import { onAuthStateChanged, signOut, type User } from "firebase/auth"
-import { doc, onSnapshot } from "firebase/firestore"
-import { auth, db } from "@/firebase"
+import { createContext, useContext, useEffect, useMemo, useState, useSyncExternalStore, type ReactNode } from "react"
 import fantasmas from "../dataBank/fantasmas.json"
 import type { Fantasma } from "../dataBank/fantasmasType"
 import {
-    UID_LOCAL,
-    USUARIO_ADMIN_LOCAL,
     assinarLocal,
     garantirJogador,
-    lerDocumentoLocal,
-    sairLocal,
-    sessaoLocalAtiva,
+    interpretarDocumento,
+    interpretarSessao,
+    lerDocumentoBruto,
+    lerSessaoBruta,
+    sair as sairDaSessao,
     type Jogador,
+    type Usuario,
 } from "../lib/jogador"
 
-export type Usuario = Pick<User, "uid" | "displayName" | "email">
-
-const USUARIO_LOCAL: Usuario = { uid: UID_LOCAL, displayName: USUARIO_ADMIN_LOCAL, email: null }
+export type { Usuario }
 
 type Contexto = {
     user: Usuario | null
@@ -41,85 +37,43 @@ const JogadorContext = createContext<Contexto>({
 })
 
 export function JogadorProvider({ children }: { children: ReactNode }) {
-    const [usuarioFirebase, setUsuarioFirebase] = useState<User | null>(null)
-    const [sessaoLocal, setSessaoLocal] = useState(false)
-    const [authPronto, setAuthPronto] = useState(false)
-    const [docAtual, setDocAtual] = useState<{ uid: string; jogador: Jogador } | null>(null)
     const [erro, setErro] = useState<string | null>(null)
-    const criando = useRef(false)
 
-    // 1) sessão do Firebase Auth (persiste entre recarregamentos) + sessão local
-    useEffect(() => {
-        return onAuthStateChanged(auth, (u) => {
-            setUsuarioFirebase(u)
-            setSessaoLocal(sessaoLocalAtiva())
-            setAuthPronto(true)
-        })
-    }, [])
+    // sessão (undefined = ainda no servidor / antes de hidratar)
+    const brutoSessao = useSyncExternalStore<string | null | undefined>(
+        assinarLocal,
+        lerSessaoBruta,
+        () => undefined,
+    )
+    const pronto = brutoSessao !== undefined
+    const user = useMemo(() => interpretarSessao(brutoSessao), [brutoSessao])
 
-    useEffect(() => {
-        return assinarLocal(() => setSessaoLocal(sessaoLocalAtiva()))
-    }, [])
+    // progresso do agente, sempre sincronizado com o localStorage (inclusive entre abas)
+    const brutoDoc = useSyncExternalStore<string | null>(
+        assinarLocal,
+        () => (user ? lerDocumentoBruto(user.uid) : null),
+        () => null,
+    )
+    const jogador = useMemo(() => interpretarDocumento(brutoDoc), [brutoDoc])
 
-    const user: Usuario | null = sessaoLocal ? USUARIO_LOCAL : usuarioFirebase
-
-    // 2) documento do agente em tempo real; cria + sorteia o monstro se ainda não existir
+    // cria o progresso + sorteia o monstro no primeiro acesso (e completa ferramentas novas)
     useEffect(() => {
         if (!user) return
-        const uid = user.uid
-
-        if (uid === UID_LOCAL) {
-            garantirJogador(user) // síncrono para o usuário local
-            const ler = () => {
-                const j = lerDocumentoLocal()
-                if (j) setDocAtual({ uid, jogador: j })
-            }
-            ler()
-            return assinarLocal(ler)
+        try {
+            garantirJogador(user)
+        } catch (e) {
+            console.error(e)
+            setErro("Não foi possível salvar o progresso neste navegador. Saia da aba anônima e tente de novo.")
         }
-
-        return onSnapshot(
-            doc(db, "jogadores", uid),
-            (snap) => {
-                const dados = snap.data()
-                const completo =
-                    snap.exists() &&
-                    typeof dados?.monstroId === "number" &&
-                    typeof dados?.progresso === "object"
-
-                if (completo) {
-                    setDocAtual({ uid, jogador: dados as Jogador })
-                    setErro(null)
-                    return
-                }
-
-                if (criando.current) return
-                criando.current = true
-                garantirJogador(user)
-                    .catch((e) => {
-                        console.error(e)
-                        setErro("Não foi possível carregar o seu dossiê. Tente novamente.")
-                    })
-                    .finally(() => {
-                        criando.current = false
-                    })
-            },
-            (e) => {
-                console.error(e)
-                setErro("Sem permissão ou sem conexão com o banco de dados.")
-            },
-        )
     }, [user])
 
-    const jogador = user && docAtual?.uid === user.uid ? docAtual.jogador : null
     const monstro = jogador
         ? (fantasmas.fantasmas.find((f) => f.id === jogador.monstroId) ?? null)
         : null
-    const carregando = !authPronto || (!!user && !jogador && !erro)
+    const carregando = !pronto || (!!user && !jogador && !erro)
 
     async function sair() {
-        sairLocal()
-        await signOut(auth)
+        sairDaSessao()
     }
 
     return (

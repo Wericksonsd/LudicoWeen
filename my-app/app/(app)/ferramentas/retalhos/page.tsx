@@ -3,20 +3,34 @@
 import { useGuardaFerramenta } from "../../../lib/useGuardaFerramenta"
 
 import { useRef, useState, type PointerEvent } from "react";
-import Image from "next/image";
+import dados from "../../../dataBank/fantasmas.json";
+import Imagem from "../../../components/imagem";
+import { useJogador } from "../../../context/JogadorContext";
 
 type Disco = "azul" | "vermelho" | "verde"
 
-const DISCOS: { id: Disco; nome: string; imagem: string; botao: string; anel: string }[] = [
-    { id: "azul", nome: "Azul", imagem: "/retalhos/azul-1.svg", botao: "bg-blue-800", anel: "ring-blue-800" },
-    { id: "vermelho", nome: "Vermelho", imagem: "/retalhos/verm-1.svg", botao: "bg-red-800", anel: "ring-red-800" },
-    { id: "verde", nome: "Verde", imagem: "/retalhos/verde-1.svg", botao: "bg-green-600", anel: "ring-green-600" },
+// ordem das camadas (a última fica por cima)
+const CAMADAS: { id: Disco; nome: string; prefixo: string; anel: string }[] = [
+    { id: "azul", nome: "Azul", prefixo: "azul", anel: "ring-blue-800" },
+    { id: "verde", nome: "Verde", prefixo: "verde", anel: "ring-green-600" },
+    { id: "vermelho", nome: "Vermelho", prefixo: "verm", anel: "ring-red-800" },
+]
+
+// ordem dos botões
+const BOTOES: { id: Disco; nome: string; cor: string }[] = [
+    { id: "azul", nome: "Azul", cor: "bg-blue-800" },
+    { id: "vermelho", nome: "Vermelho", cor: "bg-red-800" },
+    { id: "verde", nome: "Verde", cor: "bg-green-600" },
 ]
 
 const PASSO = 10 // graus por "encaixe" (igual aos 36 passos dos antigos sliders)
 
 export default function Retalhos() {
     useGuardaFerramenta(3)
+    const { monstro } = useJogador()
+
+    // a "ordem" (1 a 3) do monstro escolhe o conjunto de imagens: azul-1/verde-1/verm-1, azul-2/...
+    const ordem = (monstro ?? dados.fantasmas[0]).ordem
 
     const [atual, setAtual] = useState<Disco>("azul")
     const [rotacoes, setRotacoes] = useState<Record<Disco, number>>({ azul: 0, vermelho: 0, verde: 0 })
@@ -49,7 +63,7 @@ export default function Retalhos() {
         arraste.current = null
     }
 
-    const discoAtual = DISCOS.find((d) => d.id === atual)!
+    const anelAtual = CAMADAS.find((d) => d.id === atual)!.anel
 
     return (
         <div className="flex-1 p-6 flex flex-col">
@@ -63,21 +77,21 @@ export default function Retalhos() {
                 onPointerMove={mover}
                 onPointerUp={soltar}
                 onPointerCancel={soltar}
-                className={`w-full aspect-square bg-zinc-200 my-8 relative rounded-full ring-4 ${discoAtual.anel} touch-none select-none cursor-grab active:cursor-grabbing`}>
-                {DISCOS.map((d) => (
-                    <Image
+                className={`w-full aspect-square bg-zinc-200 my-8 relative rounded-full ring-4 ${anelAtual} touch-none select-none cursor-grab active:cursor-grabbing`}>
+                {CAMADAS.map((d) => (
+                    <Imagem
                         key={d.id}
-                        src={d.imagem} alt={d.nome} fill draggable={false}
+                        src={`/retalhos/${d.prefixo}-${ordem}.svg`} alt={d.nome} fill draggable={false}
                         className="opacity-75 pointer-events-none"
                         style={{ transform: `rotate(${rotacoes[d.id]}deg)` }} />
                 ))}
             </div>
 
             <div className="w-full flex justify-between gap-3">
-                {DISCOS.map((d) => (
-                    <button key={d.id} type="button" onClick={() => setAtual(d.id)}
-                        className={`flex-1 h-14 rounded-xl text-sm font-bold ${d.botao} ${atual === d.id ? "ring-4 ring-orange-300" : "opacity-70"}`}>
-                        {d.nome}
+                {BOTOES.map((b) => (
+                    <button key={b.id} type="button" onClick={() => setAtual(b.id)}
+                        className={`flex-1 h-14 rounded-xl text-sm font-bold ${b.cor} ${atual === b.id ? "ring-4 ring-orange-300" : "opacity-70"}`}>
+                        {b.nome}
                     </button>
                 ))}
             </div>

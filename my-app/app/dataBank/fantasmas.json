@@ -8,9 +8,10 @@
     "motivacao": "Devorar a carne de cadáveres humanos e saquear sepulturas",
     "surgimento": "Século VIII",
     "emf": [[1, 1], [0, -2], [1, -1], [-2, -1], [-1, 2]],
-    "uv": 4,
-    "texto": ["Texto...", "texto2...", "texto3..."],
-    "retalho": 2,
+    "uv": 5,
+    "agressao": "baixa",
+    "textoRelato": ["Texto...", "texto2...", "texto3..."],
+    "ordem": 3,
     "imagem": "/ghoull.png"
     },
     {
@@ -21,6 +22,10 @@
     "motivacao": "Punir as almas dos maus no inferno e causar calamidades e sofrimento aos vivos",
     "surgimento": "Século VIII",
     "emf": [[2, -2], [2, -1], [-2, 2], [0, -2], [1, -1]],
+    "uv": 3,
+    "agressao": "média",
+    "textoRelato": ["Texto...", "texto2...", "texto3..."],
+    "ordem": 1,
     "imagem": "/oni.png"
     },
     {
@@ -31,6 +36,10 @@
     "motivacao": "Buscar descanso, transmitir mensagens pendentes aos vivos ou resolver assuntos inacabados",
     "surgimento": "Antiguidade",
     "emf": [[2, -2], [2, 1], [2, 1], [-1, 0], [0, -1]],
+    "uv": 5,
+    "agressao": "baixa",
+    "textoRelato": ["Texto...", "texto2...", "texto3..."],
+    "ordem": 1,
     "imagem": "/espirito.png"
     },
     {
@@ -41,6 +50,10 @@
     "motivacao": "Indicar presságio de morte ",
     "surgimento": "Século VIII",
     "emf": [[2, 0], [1, 0], [-2, 1], [-2, -1], [0, 1]],
+    "uv": 7,
+    "agressao": "baixa",
+    "textoRelato": ["Texto...", "texto2...", "texto3..."],
+    "ordem": 1,
     "imagem": "/banshee.png"
     },
     {
@@ -51,6 +64,10 @@
     "motivacao": "Chorar e vagar pelas margens dos rios procurando seus filhos perdidos, atraindo e punindo aqueles que cruzam seu caminho",
     "surgimento": "Século XVI",
     "emf": [[0, 2], [-1, 0], [0, -2], [-1, -1], [2, 1]],
+    "uv": 1,
+    "agressao": "média",
+    "textoRelato": ["Texto...", "texto2...", "texto3..."],
+    "ordem": 2,
     "imagem": "/la_llorona.png"
     },
     {
@@ -61,6 +78,10 @@
     "motivacao": "Cumprir uma sina eterna de perambular pela terra após ter sido rejeitado pelo Céu, pelo Inferno e pela própria terra",
     "surgimento": "Século XIX",
     "emf": [[2, 0], [2, 2], [1, 1], [-1, 2], [-1, -1]],
+    "uv": 6,
+    "agressao": "média",
+    "textoRelato": ["Texto...", "texto2...", "texto3..."],
+    "ordem": 2,
     "imagem": "/corpo_seco.png"
     },
     {
@@ -71,6 +92,10 @@
     "motivacao": "Abordar transeuntes à noite para perguntar se a acham bonita antes de revelar sua verdadeira face e ataca-los",
     "surgimento": "Século XVII",
     "emf": [[0, -1], [0, 2], [2, 0], [-2, -2], [0, -1]],
+    "uv": 2,
+    "agressao": "média",
+    "textoRelato": ["Texto...", "texto2...", "texto3..."],
+    "ordem": 3,
     "imagem": "/kuchisake_onna.png"
     },
     {
@@ -81,6 +106,10 @@
     "motivacao": "Buscar vingança obsessiva e irrestrita contra aqueles que o prejudicaram ou contra qualquer um que cruze seu caminho",
     "surgimento": "Século VIII",
     "emf": [[-2, 0], [-2, 2], [-2, -2], [-2, 1], [0, 2]],
+    "uv": 4,
+    "agressao": "baixa",
+    "textoRelato": ["Texto...", "texto2...", "texto3..."],
+    "ordem": 2,
     "imagem": "/onryo.png"
     },
     {
@@ -91,6 +120,10 @@
     "motivacao": "Vagar à procura de sua cabeça perdida no campo de batalha durante a Revolução Americana",
     "surgimento": "Século XVIII",
     "emf": [[1, -2], [0, 1], [-1, 2], [-1, -2], [2, 1]],
+    "uv": 2,
+    "agressao": "alta",
+    "textoRelato": ["Texto...", "texto2...", "texto3..."],
+    "ordem": 1,
     "imagem": "/cavaleiro_sem_cabeca.png"
     },
     {
@@ -101,6 +134,10 @@
     "motivacao": "Assombrar castelos e famílias nobres para avisar sobre mortes iminentes ou lamentar uma tragédia amorosa do passado",
     "surgimento": "Século XV",
     "emf": [[2, 1], [1, 0], [1, 1], [1, 1], [-1, -2]],
+    "uv": 5,
+    "agressao": "baixa",
+    "textoRelato": ["Texto...", "texto2...", "texto3..."],
+    "ordem": 1,
     "imagem": "/dama_branca.png"
     },
     {
@@ -111,6 +148,10 @@
     "motivacao": "Vingação contra homens por ter morrido durante o parto ou por violência sofrida em vida",
     "surgimento": "Século XVIII",
     "emf": [[0, 2], [1, -1], [-2, 1], [-1, -1], [-1, -2]],
+    "uv": 7,
+    "agressao": "baixa",
+    "textoRelato": ["Texto...", "texto2...", "texto3..."],
+    "ordem": 3,
     "imagem": "/pontianak.png"
     },
     {
@@ -121,6 +162,10 @@
     "motivacao": "Proteger com extrema violência os tesouros e riquezas enterrados em sua sepultura",
     "surgimento": "Século IX",
     "emf": [[1, 0], [-2, -1], [2, 2], [-1, -2], [-1, 1]],
+    "uv": 2,
+    "agressao": "média",
+    "textoRelato": ["Texto...", "texto2...", "texto3..."],
+    "ordem": 2,
     "imagem": "/draugr.png"
     },
     {
@@ -131,6 +176,10 @@
     "motivacao": "Drenar a energia vital (Qi) das pessoas vivas por estar impossibilitado de alcançar o descanso eterno",
     "surgimento": "Século XVII",
     "emf": [[0, -2], [1, 1], [-2, 2], [-1, -1], [0, 2]],
+    "uv": 1,
+    "agressao": "baixa",
+    "textoRelato": ["Texto...", "texto2...", "texto3..."],
+    "ordem": 1,
     "imagem": "/jiangshi.png"
     },
     {
@@ -141,6 +190,10 @@
     "motivacao": "Atrapalhar viajantes, pregar peças, causar loucura e revelar segredos do passado e do futuro através de enigmas",
     "surgimento": "Século XI",
     "emf": [[0, -2], [-1, -1], [1, 0], [1, 0], [2, 1]],
+    "uv": 6,
+    "agressao": "média",
+    "textoRelato": ["Texto...", "texto2...", "texto3..."],
+    "ordem": 3,
     "imagem": "/vetala.png"
     },
     {
@@ -151,6 +204,10 @@
     "motivacao": "Condenado a navegar eternamente sem jamais poder aportar, servindo como um presságio de desgraça para os marinheiros que o avistam",
     "surgimento": "Século XVII",
     "emf": [[-2, -1], [-2, -1], [0, -2], [0, 2], [-1, -1]],
+    "uv": 3,
+    "agressao": "média",
+    "textoRelato": ["Texto...", "texto2...", "texto3..."],
+    "ordem": 2,
     "imagem": "/holandês_voador.png"
     },
     {
@@ -161,6 +218,10 @@
     "motivacao": "Responder a rituais de invocação feitos em ambientes escuros diante do espelho, atormentando ou atacando quem a chama",
     "surgimento": "Século XX",
     "emf": [[-2, 0], [1, -2], [-2, -2], [0, -2], [1, 0]],
+    "uv": 2,
+    "agressao": "baixa",
+    "textoRelato": ["Texto...", "texto2...", "texto3..."],
+    "ordem": 2,
     "imagem": "/bloody_mary.png"
     }
 ]

@@ -1,13 +1,54 @@
 'use client'
 
-import { useGuardaFerramenta } from "../../../lib/useGuardaFerramenta"
-
+import { useRef, useState, type PointerEvent } from "react"
 import Titulo from "../../../components/titulo"
-import { useState } from "react"
+import dados from "../../../dataBank/fantasmas.json"
+import { useJogador } from "../../../context/JogadorContext"
+import { useGuardaFerramenta } from "../../../lib/useGuardaFerramenta"
+import { urlImagem } from "../../../lib/imagens"
+
+/** tamanho da imagem de máscara em relação à largura do container (2.5 = 250%) */
+const ESCALA_MASCARA = 2.5
+const MASCARA = "/uv/mascara.png"
 
 export default function UV() {
     useGuardaFerramenta(2)
-    const [rotationBtn, setRotationBtn] = useState(0)
+    const { monstro } = useJogador()
+
+    // o fundo depende da UV (1 a 7) do monstro sorteado: /uv/uv-1.png ... /uv/uv-7.png
+    const uv = (monstro ?? dados.fantasmas[0]).uv
+    const fundo = urlImagem(`/uv/uv-${uv}.png`)
+    const mascara = urlImagem(MASCARA)
+
+    // deslocamento da máscara (px) em relação ao centro do container
+    const [pos, setPos] = useState({ x: 0, y: 0 })
+    const areaRef = useRef<HTMLDivElement>(null)
+    const arraste = useRef<{ px: number; py: number; x: number; y: number } | null>(null)
+
+    function iniciar(e: PointerEvent) {
+        e.currentTarget.setPointerCapture(e.pointerId)
+        arraste.current = { px: e.clientX, py: e.clientY, x: pos.x, y: pos.y }
+    }
+
+    function mover(e: PointerEvent) {
+        if (!arraste.current || !areaRef.current) return
+        const caixa = areaRef.current.getBoundingClientRect()
+        const { px, py, x, y } = arraste.current
+        // o centro da lanterna pode ir até as bordas do container
+        const limiteX = caixa.width / 2
+        const limiteY = caixa.height / 2
+        setPos({
+            x: Math.max(-limiteX, Math.min(limiteX, x + (e.clientX - px))),
+            y: Math.max(-limiteY, Math.min(limiteY, y + (e.clientY - py))),
+        })
+    }
+
+    function soltar() {
+        arraste.current = null
+    }
+
+    const posicao = `calc(50% + ${pos.x}px) calc(50% + ${pos.y}px)`
+    const tamanho = `${ESCALA_MASCARA * 100}% auto`
 
     return (
         <div className="flex-1 flex flex-col items-center justify-center p-6 gap-4">
@@ -15,27 +56,31 @@ export default function UV() {
             titulo="Lanterna UV"
             subTitulo="Rastreio espectros plasmáticos deixados pelas entidades."
             hiddenVar = {true}
-            helpTExt="Utilize o controle de cores para neutralizar os espectros registrados pela luz UV. Após neutralizado, análise a cor e número de espectros para determinar sua presença."
+            helpTExt="Arraste a lanterna sobre a área para revelar os espectros registrados pela luz UV. Analise a cor e o número de espectros para determinar a presença da entidade."
             />
-            <div className="flex-1 w-full mask-[url(/fundo.svg)] mask-center mask-cover bg-amber-700 flex items-center justify-center ">
-                <div className="h-24 w-24 bg-blue-700"
-                style={{filter:`blur(${rotationBtn}px)`}}>
-                    {rotationBtn}
-                </div>
-            </div>
-            <div className="w-full flex">
-                <div className="relative">
-                    <div className="h-16 w-16 bg-zinc-600 rounded-4xl flex items-center justify-start p-2"
-                        style={{ transform: `rotate(${rotationBtn*18}deg)`}}>
-                        <div className="h-2 w-2 rounded-4xl bg-zinc-300">
-                        </div>
-                    </div>
-                    <input type="range" id="rotacao" min={0} max={10} value={rotationBtn}
-                    onChange={((e) => setRotationBtn(parseInt(e.target.value)))}
-                    className="w-16 h-16 z-2 -translate-y-14 opacity-0 absolute"/>
-                </div>
+            <div
+                ref={areaRef}
+                onPointerDown={iniciar}
+                onPointerMove={mover}
+                onPointerUp={soltar}
+                onPointerCancel={soltar}
+                className="flex-1 w-full relative overflow-hidden rounded-md bg-zinc-950 touch-none select-none cursor-grab active:cursor-grabbing">
+                {/* a imagem de fundo só aparece onde a máscara (a "luz") passa */}
+                <div
+                    className="absolute inset-0 bg-cover bg-center"
+                    style={{
+                        backgroundImage: `url(${fundo})`,
+                        maskImage: `url(${mascara})`,
+                        WebkitMaskImage: `url(${mascara})`,
+                        maskRepeat: "no-repeat",
+                        WebkitMaskRepeat: "no-repeat",
+                        maskSize: tamanho,
+                        WebkitMaskSize: tamanho,
+                        maskPosition: posicao,
+                        WebkitMaskPosition: posicao,
+                    }}
+                />
             </div>
         </div>
     )
 }
-            

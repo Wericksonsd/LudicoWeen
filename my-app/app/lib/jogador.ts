@@ -1,25 +1,23 @@
-import type { User } from "firebase/auth"
-import {
-    FieldPath,
-    doc,
-    runTransaction,
-    updateDoc,
-    type DocumentData,
-} from "firebase/firestore"
-import { db } from "@/firebase"
 import fantasmas from "../dataBank/fantasmas.json"
 import ferramentas from "../dataBank/ferramentas.json"
 
 /* ------------------------------------------------------------------ */
-/* Modelo: um documento por agente em  jogadores/{uid}                 */
+/* Sem autenticação: o agente entra só com o nome e todo o progresso   */
+/* fica no localStorage do navegador (uma chave por nome de usuário).  */
 /* ------------------------------------------------------------------ */
+
+export type Usuario = {
+    uid: string
+    nome: string
+    admin: boolean
+}
 
 export type ProgressoFerramenta = {
     liberada: boolean
     liberadaEm: number | null
     concluida: boolean
     concluidaEm: number | null
-    /** estado livre da ferramenta (ex.: posição das barras do EMF) */
+    /** estado livre da ferramenta (ex.: posição dos círculos do EMF) */
     dados: Record<string, unknown>
 }
 
@@ -54,46 +52,27 @@ export const MAX_TENTATIVAS = 2
 export const ESPERA_APOS_ERRO_MS = 15 * 60 * 1000
 
 /* ------------------------------------------------------------------ */
-/* Usuário padrão local (não usa Firebase; dados ficam no navegador)   */
+/* Usuário administrador                                               */
 /* ------------------------------------------------------------------ */
 
-export const USUARIO_ADMIN_LOCAL = "adminCassio"
-export const SENHA_ADMIN_LOCAL = "adminCassio"
-export const UID_LOCAL = "local-admin"
-/** true = o admin local já começa com todas as ferramentas liberadas (facilita testes) */
-const ADMIN_LOCAL_COMECA_LIBERADO = true
+export const USUARIO_ADMIN = "adminCassio"
+/** (mantém o progresso que o admin já tinha neste navegador) */
+export const UID_ADMIN = "local-admin"
+/** true = o admin já começa com todas as ferramentas liberadas (facilita testes) */
+const ADMIN_COMECA_LIBERADO = true
 
-const CHAVE_DOC_LOCAL = "cassio:jogadorLocal"
-const CHAVE_SESSAO_LOCAL = "cassio:sessaoLocal"
+const CHAVE_SESSAO = "cassio:sessao"
 const EVENTO_LOCAL = "cassio:local"
+
+/** chave do localStorage onde fica o progresso de cada usuário */
+const chaveDocumento = (uid: string) =>
+    uid === UID_ADMIN ? "cassio:jogadorLocal" : `cassio:jogador:${uid}`
 
 function emitirLocal() {
     window.dispatchEvent(new Event(EVENTO_LOCAL))
 }
 
-export function sessaoLocalAtiva(): boolean {
-    try {
-        return localStorage.getItem(CHAVE_SESSAO_LOCAL) === "1"
-    } catch {
-        return false
-    }
-}
-
-function lerJogadorLocal(): Jogador | null {
-    try {
-        const bruto = localStorage.getItem(CHAVE_DOC_LOCAL)
-        return bruto ? (JSON.parse(bruto) as Jogador) : null
-    } catch {
-        return null
-    }
-}
-
-function salvarJogadorLocal(j: Jogador) {
-    localStorage.setItem(CHAVE_DOC_LOCAL, JSON.stringify(j))
-    emitirLocal()
-}
-
-/** Avisa quando a sessão local ou o documento local mudam (mesma aba ou outra aba). */
+/** Avisa quando a sessão ou o progresso mudam (mesma aba ou outra aba). */
 export function assinarLocal(cb: () => void): () => void {
     window.addEventListener(EVENTO_LOCAL, cb)
     window.addEventListener("storage", cb)
@@ -103,26 +82,90 @@ export function assinarLocal(cb: () => void): () => void {
     }
 }
 
-export function lerDocumentoLocal(): Jogador | null {
-    return lerJogadorLocal()
+/* ------------------------------------------------------------------ */
+/* Sessão (login só com o nome)                                        */
+/* ------------------------------------------------------------------ */
+
+function normalizarNome(nome: string): string {
+    return nome
+        .toLowerCase()
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "") // remove acentos
+        .replace(/[^a-z0-9]+/g, "-")
+        .replace(/^-+|-+$/g, "")
 }
 
-export function entrarAdminLocal() {
-    localStorage.setItem(CHAVE_SESSAO_LOCAL, "1")
+/** Entra com o nome do agente. Lança Error com a mensagem a mostrar se o nome for inválido. */
+export function entrar(nomeDigitado: string): void {
+    const nome = nomeDigitado.trim().replace(/\s+/g, " ").slice(0, 40)
+    if (nome.length < 2) throw new Error("Digite o nome do agente.")
+
+    const slug = normalizarNome(nome)
+    if (!slug) throw new Error("Nome inválido. Use letras ou números.")
+
+    const admin = slug === normalizarNome(USUARIO_ADMIN)
+    const sessao = admin
+        ? { uid: UID_ADMIN, nome: USUARIO_ADMIN }
+        : { uid: `u-${slug}`, nome }
+
+    localStorage.setItem(CHAVE_SESSAO, JSON.stringify(sessao))
     emitirLocal()
 }
 
-/** Sai da sessão local, mas mantém o progresso salvo no navegador. */
-export function sairLocal() {
-    localStorage.removeItem(CHAVE_SESSAO_LOCAL)
+/** Encerra a sessão, mas mantém o progresso salvo no navegador. */
+export function sair(): void {
+    localStorage.removeItem(CHAVE_SESSAO)
     emitirLocal()
 }
 
+export function lerSessaoBruta(): string | null {
+    try {
+        return localStorage.getItem(CHAVE_SESSAO)
+    } catch {
+        return null
+    }
+}
+
+export function interpretarSessao(bruto: string | null | undefined): Usuario | null {
+    if (!bruto) return null
+    try {
+        const s = JSON.parse(bruto)
+        if (typeof s?.uid === "string" && typeof s?.nome === "string") {
+            return { uid: s.uid, nome: s.nome, admin: s.uid === UID_ADMIN }
+        }
+    } catch {
+        /* sessão corrompida: trata como deslogado */
+    }
+    return null
+}
+
 /* ------------------------------------------------------------------ */
-/* Helpers                                                             */
+/* Leitura e escrita do progresso                                      */
 /* ------------------------------------------------------------------ */
 
-const jogadorRef = (uid: string) => doc(db, "jogadores", uid)
+export function lerDocumentoBruto(uid: string): string | null {
+    try {
+        return localStorage.getItem(chaveDocumento(uid))
+    } catch {
+        return null
+    }
+}
+
+export function interpretarDocumento(bruto: string | null | undefined): Jogador | null {
+    if (!bruto) return null
+    try {
+        return JSON.parse(bruto) as Jogador
+    } catch {
+        return null
+    }
+}
+
+const lerDocumento = (uid: string) => interpretarDocumento(lerDocumentoBruto(uid))
+
+function salvarDocumento(uid: string, j: Jogador) {
+    localStorage.setItem(chaveDocumento(uid), JSON.stringify(j))
+    emitirLocal()
+}
 
 function progressoInicial(tudoLiberado = false): Progresso {
     const fs: Record<string, ProgressoFerramenta> = {}
@@ -148,10 +191,6 @@ function sortearMonstroId(): number {
     return ids[Math.floor(Math.random() * ids.length)]
 }
 
-function nomeDoUsuario(user: Pick<User, "displayName" | "email">): string {
-    return user.displayName?.trim() || user.email?.split("@")[0] || "Agente"
-}
-
 function definirCaminho(obj: Record<string, unknown>, caminho: string[], valor: unknown) {
     let atual = obj
     for (const chave of caminho.slice(0, -1)) {
@@ -167,27 +206,13 @@ export function todasFerramentasLiberadas(jogador: Jogador | null): boolean {
     return ferramentas.ferramentas.every((f) => jogador.progresso.ferramentas[String(f.id)]?.liberada)
 }
 
-/**
- * Atualização parcial por caminho (ex.: progresso.ferramentas.1.liberada).
- * No Firestore usa FieldPath (ids numéricos funcionam e o resto do objeto não é sobrescrito).
- */
+/** Atualização parcial por caminho (ex.: ["progresso","ferramentas","1","liberada"]). */
 async function atualizar(uid: string, pares: [string[], unknown][]) {
-    if (uid === UID_LOCAL) {
-        const j = lerJogadorLocal()
-        if (!j) return
-        const copia = JSON.parse(JSON.stringify(j)) as Record<string, unknown>
-        for (const [caminho, valor] of pares) definirCaminho(copia, caminho, valor)
-        salvarJogadorLocal(copia as unknown as Jogador)
-        return
-    }
-
-    const [primeiro, ...resto] = pares
-    await updateDoc(
-        jogadorRef(uid),
-        new FieldPath(...primeiro[0]),
-        primeiro[1],
-        ...resto.flatMap(([caminho, valor]) => [new FieldPath(...caminho), valor]),
-    )
+    const j = lerDocumento(uid)
+    if (!j) throw new Error("Progresso do agente não encontrado.")
+    const copia = JSON.parse(JSON.stringify(j)) as Record<string, unknown>
+    for (const [caminho, valor] of pares) definirCaminho(copia, caminho, valor)
+    salvarDocumento(uid, copia as unknown as Jogador)
 }
 
 /* ------------------------------------------------------------------ */
@@ -195,45 +220,35 @@ async function atualizar(uid: string, pares: [string[], unknown][]) {
 /* ------------------------------------------------------------------ */
 
 /**
- * Cria o documento do agente no primeiro login e sorteia o monstro UMA única vez.
- * É idempotente: se já houver monstroId (de outro aparelho, ou pré-cadastrado
- * pela organização), ele é mantido. A transação evita dois sorteios simultâneos.
+ * Cria o progresso do agente no primeiro acesso neste aparelho e sorteia o monstro
+ * UMA única vez. Se já existir, mantém o monstro e só completa o que faltar
+ * (por exemplo, ferramentas novas adicionadas ao ferramentas.json).
+ * Pode lançar erro se o navegador bloquear o localStorage (ex.: aba privada).
  */
-export async function garantirJogador(user: Pick<User, "uid" | "displayName" | "email">) {
-    if (user.uid === UID_LOCAL) {
-        // execução síncrona (sem await antes), para o documento existir já na primeira leitura
-        if (!lerJogadorLocal()) {
-            salvarJogadorLocal({
-                usuario: USUARIO_ADMIN_LOCAL,
-                criadoEm: Date.now(),
-                monstroId: sortearMonstroId(),
-                progresso: progressoInicial(ADMIN_LOCAL_COMECA_LIBERADO),
-            })
-        }
+export function garantirJogador(user: Pick<Usuario, "uid" | "nome">): void {
+    const existente = lerDocumento(user.uid)
+    const padrao = progressoInicial(user.uid === UID_ADMIN && ADMIN_COMECA_LIBERADO)
+
+    if (!existente || typeof existente.monstroId !== "number" || typeof existente.progresso !== "object") {
+        salvarDocumento(user.uid, {
+            usuario: user.nome,
+            criadoEm: existente?.criadoEm ?? Date.now(),
+            monstroId: typeof existente?.monstroId === "number" ? existente.monstroId : sortearMonstroId(),
+            progresso: padrao,
+        })
         return
     }
 
-    const ref = jogadorRef(user.uid)
-
-    await runTransaction(db, async (tx) => {
-        const snap = await tx.get(ref)
-        const atual: DocumentData = snap.exists() ? snap.data() : {}
-
-        const temMonstro = typeof atual.monstroId === "number"
-        const temProgresso = typeof atual.progresso === "object" && atual.progresso !== null
-        if (temMonstro && temProgresso) return
-
-        tx.set(
-            ref,
-            {
-                usuario: atual.usuario ?? nomeDoUsuario(user),
-                criadoEm: atual.criadoEm ?? Date.now(),
-                monstroId: temMonstro ? atual.monstroId : sortearMonstroId(),
-                progresso: temProgresso ? atual.progresso : progressoInicial(),
-            },
-            { merge: true },
-        )
-    })
+    // completa ferramentas que ainda não existem no progresso salvo
+    const faltando = Object.keys(padrao.ferramentas).filter((id) => !existente.progresso.ferramentas?.[id])
+    if (faltando.length) {
+        const ferramentasAtuais = { ...(existente.progresso.ferramentas ?? {}) }
+        for (const id of faltando) ferramentasAtuais[id] = padrao.ferramentas[id]
+        salvarDocumento(user.uid, {
+            ...existente,
+            progresso: { ...existente.progresso, ferramentas: ferramentasAtuais },
+        })
+    }
 }
 
 export async function liberarFerramenta(uid: string, ferramentaId: number) {
@@ -266,6 +281,26 @@ export async function salvarEvidencias(uid: string, texto: string) {
         [["progresso", "evidencias", "atualizadoEm"], Date.now()],
     ])
 }
+
+/* ----- ações do administrador ----- */
+
+function exigirAdmin(uid: string) {
+    if (uid !== UID_ADMIN) throw new Error("Ação permitida só para o administrador.")
+}
+
+/** Define qual monstro o administrador recebe. */
+export async function definirMonstro(uid: string, monstroId: number) {
+    exigirAdmin(uid)
+    await atualizar(uid, [[["monstroId"], monstroId]])
+}
+
+/** Zera o progresso do administrador (ferramentas, evidências e captura). O monstro atual é mantido. */
+export async function resetarProgresso(uid: string, tudoLiberado: boolean) {
+    exigirAdmin(uid)
+    await atualizar(uid, [[["progresso"], progressoInicial(tudoLiberado)]])
+}
+
+/* ----- captura ----- */
 
 export type ResultadoCaptura =
     | { ok: true; acertou: boolean; status: StatusCaptura }
@@ -311,20 +346,9 @@ function calcularCaptura(
  * a segunda falha encerra a missão (conforme a carta de introdução).
  */
 export async function tentarCapturar(uid: string, palpiteId: number): Promise<ResultadoCaptura> {
-    if (uid === UID_LOCAL) {
-        const j = lerJogadorLocal()
-        if (!j) return { ok: false, motivo: "encerrada" }
-        const { resultado, captura } = calcularCaptura(j, palpiteId, Date.now())
-        if (captura) await atualizar(uid, [[["progresso", "captura"], captura]])
-        return resultado
-    }
-
-    const ref = jogadorRef(uid)
-
-    return runTransaction(db, async (tx) => {
-        const snap = await tx.get(ref)
-        const { resultado, captura } = calcularCaptura(snap.data() as Jogador, palpiteId, Date.now())
-        if (captura) tx.update(ref, new FieldPath("progresso", "captura"), captura)
-        return resultado
-    })
+    const j = lerDocumento(uid)
+    if (!j) return { ok: false, motivo: "encerrada" }
+    const { resultado, captura } = calcularCaptura(j, palpiteId, Date.now())
+    if (captura) await atualizar(uid, [[["progresso", "captura"], captura]])
+    return resultado
 }

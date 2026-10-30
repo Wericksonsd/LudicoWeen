@@ -26,19 +26,11 @@
         },
         {
             "id": 4,
-            "nome": "Retalhos",
-            "descricao": "Análise relatos de testemunhas para identificar padrões de comportamento.",
-            "icon": "KeyboardMusic",
-            "linkTo": "/ferramentas/ouija",
-            "codigoQr": "CASSIO-PLACEHOLDER-FERRAMENTA-4"
-        },
-        {
-            "id": 5,
-            "nome": "Retalhos",
-            "descricao": "Análise relatos de testemunhas para identificar padrões de comportamento.",
-            "icon": "KeyboardMusic",
-            "linkTo": "/ferramentas/ouija",
-            "codigoQr": "CASSIO-PLACEHOLDER-FERRAMENTA-5"
+            "nome": "Relatos",
+            "descricao": "Analise relatos de testemunhas para identificar padrões de comportamento.",
+            "icon": "Newspaper",
+            "linkTo": "/ferramentas/relatos",
+            "codigoQr": "CASSIO-PLACEHOLDER-RELATOS"
         }
     ]
 }

@@ -11,7 +11,16 @@ const QTD_CIRCULOS = 5
 const MIN = -2
 const MAX = 2
 const VERDE = [22, 163, 74] // green-600
-const ROTULOS = [-2, -1, 0, 1, 2]
+const PASSO_PX = 24 // quantos pixels o círculo anda a cada unidade de amplitude/altitude
+
+// posição inicial (em %) de cada círculo dentro do quadro
+const ANCORAS = [
+    { x: 22, y: 30 },
+    { x: 50, y: 22 },
+    { x: 78, y: 30 },
+    { x: 34, y: 72 },
+    { x: 66, y: 72 },
+]
 
 export default function Ferramentas() {
     useGuardaFerramenta(1)
@@ -47,6 +56,7 @@ export default function Ferramentas() {
         return `rgb(${r}, ${g}, ${bl})`
     }
 
+    // só o círculo selecionado recebe o novo valor (e, por isso, só ele se desloca)
     function alterar(eixo: 0 | 1, valor: number) {
         setValores((anterior) =>
             anterior.map((par, i) => (i === atual ? (eixo === 0 ? [valor, par[1]] : [par[0], valor]) : par)),
@@ -72,13 +82,19 @@ export default function Ferramentas() {
                 titulo="Leitor EMF"
                 subTitulo="Leia e ajuste a frequência de campos eletromagnéticos"
                 hiddenVar={false}
-                helpTExt="Escolha um dos 5 círculos pelos botões numerados e ajuste amplitude e altitude. Quanto mais perto do valor certo, mais branco o círculo fica. Quando todos estiverem totalmente brancos, o sinal está sincronizado." />
+                helpTExt="Escolha um dos 5 círculos pelos botões numerados e ajuste amplitude (horizontal) e altitude (vertical). O círculo se move enquanto você ajusta e fica mais branco quando chega perto do valor certo. Quando todos estiverem totalmente brancos, o sinal está sincronizado." />
 
-            <div className="flex-1 w-full border-3 border-orange-300 rounded-md p-4 flex flex-wrap items-center justify-center content-center gap-6">
+            <div className="relative flex-1 w-full border-3 border-orange-300 rounded-md">
                 {Array.from({ length: QTD_CIRCULOS }, (_, i) => (
                     <button key={i} type="button" onClick={() => setAtual(i)} aria-label={`Círculo ${i + 1}`}
-                        className={`w-4 h-4 rounded-full flex items-center justify-center font-bold text-zinc-950/60 transition-colors`}
-                        style={{ backgroundColor: corCirculo(i) }}>
+                        className="absolute w-4 h-4 rounded-full transition-[transform,background-color] duration-200"
+                        style={{
+                            left: `${ANCORAS[i].x}%`,
+                            top: `${ANCORAS[i].y}%`,
+                            backgroundColor: corCirculo(i),
+                            // amplitude desloca na horizontal; altitude, na vertical (maior = mais para cima)
+                            transform: `translate(-50%, -50%) translate(${valores[i][0] * PASSO_PX}px, ${-valores[i][1] * PASSO_PX}px)`,
+                        }}>
                     </button>
                 ))}
             </div>
@@ -105,9 +121,9 @@ export default function Ferramentas() {
                                 className="h-1 w-full"/>
                             <div className="w-full flex items-center justify-between text-sm">
                                 <p>•</p>
-                                <p>•</p>                                
-                                <p>•</p>                                
-                                <p>•</p>                                
+                                <p>•</p>
+                                <p>•</p>
+                                <p>•</p>
                                 <p>•</p>
                             </div>
                         </div>

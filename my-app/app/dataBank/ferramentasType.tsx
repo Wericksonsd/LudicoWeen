@@ -1,4 +1,4 @@
-import { Flashlight, KeyboardMusic, PanelTopBottomDashed, type LucideIcon } from "lucide-react"
+import { Flashlight, KeyboardMusic, Newspaper, PanelTopBottomDashed, type LucideIcon } from "lucide-react"
 
 export type Ferramenta = {
     id: number
@@ -14,4 +14,5 @@ export const iconesFerramentas: Record<string, LucideIcon> = {
     PanelTopBottomDashed,
     Flashlight,
     KeyboardMusic,
+    Newspaper,
 }

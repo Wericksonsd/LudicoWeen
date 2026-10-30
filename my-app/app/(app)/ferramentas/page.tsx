@@ -13,7 +13,7 @@ export default function Ferramentas() {
             <p className="text-center text-zinc-300 text-sm mb-4">
                 Selecione uma ferramenta para começar a investigar.
             </p>
-            <div className="flex-1 grid grid-rows-5 gap-4 pb-2">
+            <div className="flex-1 grid gap-4 pb-2" style={{ gridTemplateRows: `repeat(${dados.ferramentas.length}, minmax(0, 1fr))` }}>
                 {dados.ferramentas.map(f => (
                 <CardsFerramentas
                     key={f.id}
