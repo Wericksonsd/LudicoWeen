@@ -122,7 +122,7 @@ export default function CamQR () {
                 hiddenVar={true}
                 helpTExt="Os QR Codes estão espalhados pelo evento. Cada um libera uma ferramenta. Mantenha o código dentro do quadro e aguarde a leitura." />
 
-            <div className="w-full flex-1 min-h-64 border-3 border-orange-300 rounded-md overflow-hidden bg-zinc-950 flex items-center justify-center relative">
+            <div className="w-full flex-1 min-h-48 border-3 border-orange-300 rounded-md overflow-hidden bg-zinc-950 flex items-center justify-center relative">
                 <video ref={videoRef} playsInline muted className="h-full w-full object-cover" />
                 {erroCamera && (
                     <p className="absolute inset-0 p-6 flex items-center justify-center text-center text-sm bg-zinc-950">
