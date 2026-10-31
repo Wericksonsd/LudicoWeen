@@ -21,7 +21,7 @@
         "Moradores de Bagdá registram ocorrências inexplicáveis nas proximidades de antigas sepulturas.",
         "Vigias noturnos relatam ter encontrado sinais de presença desconhecida em criptas abandonadas."
       ],
-      "ordem": 3,
+      "ordem": 1,
       "imagem": "/ghoull.png"
     },
     {
@@ -44,7 +44,7 @@
         "Um monge registra relatos de uma presença desconhecida nas montanhas durante uma forte tempestade.",
         "Habitantes de uma aldeia relatam ruídos inexplicáveis vindos de uma floresta próxima."
       ],
-      "ordem": 1,
+      "ordem": 3,
       "imagem": "/oni.png"
     },
     {
@@ -67,7 +67,7 @@
         "Uma família registra ocorrências estranhas em diferentes cômodos da propriedade durante a madrugada.",
         "Funcionários de um antigo hospital relatam avistamentos incomuns nos corredores desativados."
       ],
-      "ordem": 1,
+      "ordem": 3,
       "imagem": "/espirito.png"
     },
     {
@@ -136,7 +136,7 @@
         "Lenhadores registram avistamento de uma figura desconhecida próximo a uma estrada rural.",
         "Moradores de um vilarejo relatam ocorrências inexplicáveis em uma região afastada das residências."
       ],
-      "ordem": 2,
+      "ordem": 3,
       "imagem": "/corpo_seco.png"
     },
     {
@@ -159,7 +159,7 @@
         "Estudantes registram relatos de uma figura feminina desconhecida nas proximidades da escola.",
         "Policiais recebem denúncias sobre avistamentos recorrentes em diferentes bairros da cidade."
       ],
-      "ordem": 3,
+      "ordem": 2,
       "imagem": "/kuchisake_onna.png"
     },
     {
@@ -228,7 +228,7 @@
         "Mordomos registram acontecimentos inexplicáveis nos corredores de um castelo pertencente à nobreza.",
         "Viajantes relatam avistamento de uma figura feminina próxima a uma antiga propriedade aristocrática."
       ],
-      "ordem": 1,
+      "ordem": 3,
       "imagem": "/dama_branca.png"
     },
     {
@@ -236,7 +236,7 @@
       "nome": "Pontianak",
       "descricao": "Mulher de pele pálida, cabelos pretos extremamente longos cobrindo o rosto, vestes brancas manchadas e unhas compridas como garras",
       "regiao": "Ásia",
-      "motivacao": "Vingação contra homens por ter morrido durante o parto ou por violência sofrida em vida",
+      "motivacao": "Vingaça contra homens por ter morrido durante o parto ou por violência sofrida em vida",
       "surgimento": "Século XVIII",
       "emf": [[-1, 2], [0, 1], [3 ,1], [2, 3], [1, 2]],
       "uv": 7,
@@ -251,7 +251,7 @@
         "Trabalhadores de uma plantação registram avistamento de uma figura feminina em uma área isolada.",
         "Moradores de uma região costeira relatam acontecimentos inexplicáveis próximos às residências."
       ],
-      "ordem": 3,
+      "ordem": 2,
       "imagem": "/pontianak.png"
     },
     {
@@ -274,7 +274,7 @@
         "Camponeses islandeses registram avistamento de uma figura desconhecida nas proximidades de uma tumba antiga.",
         "Escavadores relatam movimentações incomuns em uma câmara funerária viking."
       ],
-      "ordem": 2,
+      "ordem": 1,
       "imagem": "/draugr.png"
     },
     {
@@ -282,7 +282,7 @@
       "nome": "Jiangshi",
       "descricao": "Cadáver rígido vestindo trajes oficiais da dinastia Qing, com pele pálida ou esverdeada, cabelos compridos e braços estendidos para a frente",
       "regiao": "Ásia",
-      "motivacao": "Drenar a energia vital (Qi) das pessoas vivas por estar impossibilitado de alcançar o descanso eterno",
+      "motivacao": "Drenar a energia vital das pessoas vivas por estar impossibilitado de alcançar o descanso eterno",
       "surgimento": "Século XVII",
       "emf": [[3, -3], [-1, -1], [-3, -2], [-2, -1], [0, -3]],
       "uv": 1,
@@ -297,7 +297,7 @@
         "Viajantes registram avistamento de uma figura desconhecida nas proximidades de um vilarejo.",
         "Moradores relatam ocorrências inexplicáveis em uma região marcada por antigas tradições funerárias."
       ],
-      "ordem": 1,
+      "ordem": 2,
       "imagem": "/jiangshi.png"
     },
     {
@@ -343,7 +343,7 @@
         "Tripulação de uma embarcação mercante registra uma ocorrência inexplicável em alto-mar.",
         "Capitão de pesqueiro relata avistamento de uma embarcação desconhecida desaparecendo no horizonte. Nenhum registro de sua identificação foi encontrado."
       ],
-      "ordem": 2,
+      "ordem": 1,
       "imagem": "/holandês_voador.png"
     },
     {
