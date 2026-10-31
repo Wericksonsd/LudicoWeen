@@ -4,11 +4,11 @@
     {
       "id": 1,
       "nome": "Ghoul",
-      "descricao": "Monstro místico e fantasmagórico que habita cemitérios, com pele pálida, dentes afiados e garras, por vezes assumindo formas humanas ou animais.",
+      "descricao": "Monstro fantasmagórico que habita cemitérios, com pele pálida, dentes afiados e garras, por vezes assumindo formas humanas ou animais.",
       "regiao": "Ásia",
       "motivacao": "Devorar a carne de cadáveres humanos e saquear sepulturas",
       "surgimento": "Século VIII",
-      "emf": [[1, 3], [2, -2], [3, -2], [-3, -3], [2, 1]],
+      "emf": [[-2, -1], [2, -2], [0, -3],[-1, -1], [-3, -2]],
       "uv": 5,
       "agressao": "baixa",
       "tituloRelato": [
@@ -31,7 +31,7 @@
       "regiao": "Ásia",
       "motivacao": "Punir as almas dos maus no inferno e causar calamidades e sofrimento aos vivos",
       "surgimento": "Século VIII",
-      "emf": [[2, -3], [2, 1], [-1, 1], [3, 1], [2, -3]],
+      "emf": [[2, -3], [1, 1], [-1, 1], [3, 0], [2, -3]],
       "uv": 3,
       "agressao": "média",
       "tituloRelato": [
@@ -54,12 +54,12 @@
       "regiao": "Global",
       "motivacao": "Buscar descanso, transmitir mensagens pendentes aos vivos ou resolver assuntos inacabados",
       "surgimento": "Antiguidade",
-      "emf": [[2, 3], [-3, 2], [2, -1], [2, 1], [-3, 2]],
+      "emf": [[2, 3], [-3, 0], [2, -1], [-1, -2], [-3,-1]],
       "uv": 5,
       "agressao": "baixa",
       "tituloRelato": [
-        "April 4, 860",
-        "June 16, 1712",
+        "XI Octobris XVIII",
+        "1897年5月16日",
         "November 2, 1924"
       ],
       "textoRelato": [
@@ -77,9 +77,9 @@
       "regiao": "Europa",
       "motivacao": "Indicar presságio de morte ",
       "surgimento": "Século VIII",
-      "emf": [[-1, 1], [3, -3], [-2, -2], [-2, -3], [1, -2]],
+      "emf": [[-1, 1], [-3, 3], [-2, 2], [-2, -3], [1, -2]],
       "uv": 7,
-      "agressao": "baixa",
+      "agressao": "média",
       "tituloRelato": [
         "IV March DCCII",
         "XII Octobris MDCCXLVIII",
@@ -100,7 +100,7 @@
       "regiao": "América",
       "motivacao": "Chorar e vagar pelas margens dos rios procurando seus filhos perdidos, atraindo e punindo aqueles que cruzam seu caminho",
       "surgimento": "Século XVI",
-      "emf": [[-2, -3], [2, -2], [1, 2], [2, -3], [2, 2]],
+      "emf": [[-2, -3], [2, -2], [1, 2], [2, -3], [1, 0]],
       "uv": 1,
       "agressao": "média",
       "tituloRelato": [
@@ -123,7 +123,7 @@
       "regiao": "América",
       "motivacao": "Cumprir uma sina eterna de perambular pela terra após ter sido rejeitado pelo Céu, pelo Inferno e pela própria terra",
       "surgimento": "Século XIX",
-      "emf": [[3, -3], [1, 3], [3, 2], [-2, -1], [-2, -2]],
+      "emf": [[3, -3], [1, 3], [3, 2], [-2 ,1], [-1 ,2]],
       "uv": 6,
       "agressao": "média",
       "tituloRelato": [
@@ -146,7 +146,7 @@
       "regiao": "Ásia",
       "motivacao": "Abordar transeuntes à noite para perguntar se a acham bonita antes de revelar sua verdadeira face e ataca-los",
       "surgimento": "Século XVII",
-      "emf": [[-1, 2], [-1, -2], [-3, 3], [-1, -1], [-3, -1]],
+      "emf": [[-1, 2], [-1, -2], [-3, 3], [-1, -1], [-2, 2]],
       "uv": 2,
       "agressao": "média",
       "tituloRelato": [
@@ -169,7 +169,7 @@
       "regiao": "Ásia",
       "motivacao": "Buscar vingança obsessiva e irrestrita contra aqueles que o prejudicaram ou contra qualquer um que cruze seu caminho",
       "surgimento": "Século VIII",
-      "emf": [[-3, 1], [2, 1], [3, -3], [1, 1], [-1, -3]],
+      "emf": [[-3, 0], [2, 1], [3, -3], [0, -3], [-2, -2]],
       "uv": 4,
       "agressao": "baixa",
       "tituloRelato": [
@@ -192,7 +192,7 @@
       "regiao": "América",
       "motivacao": "Vagar à procura de sua cabeça perdida no campo de batalha durante a Revolução Americana",
       "surgimento": "Século XVIII",
-      "emf": [[1, 3], [-2, 2], [-1, -2], [3, -1], [-1, -2]],
+      "emf": [[1, 3], [-2, 2], [-1, 1], [2, 2], [3, 0]],
       "uv": 2,
       "agressao": "alta",
       "tituloRelato": [
@@ -215,9 +215,9 @@
       "regiao": "Europa",
       "motivacao": "Assombrar castelos e famílias nobres para avisar sobre mortes iminentes ou lamentar uma tragédia amorosa do passado",
       "surgimento": "Século XV",
-      "emf": [[-3, 2], [3, 3], [-3, 1], [-3, -3], [-3, 2]],
+      "emf": [[3, 2], [-1, 0], [2, 1], [0, 2], [3, 3]],
       "uv": 5,
-      "agressao": "baixa",
+      "agressao": "alta",
       "tituloRelato": [
         "XII Maii MCDLXXXII",
         "XVIII Ianuarii MDCLXXIII",
@@ -238,9 +238,9 @@
       "regiao": "Ásia",
       "motivacao": "Vingação contra homens por ter morrido durante o parto ou por violência sofrida em vida",
       "surgimento": "Século XVIII",
-      "emf": [[-1, 2], [-1, 1], [-1, -3], [-3, 3], [2, -3]],
+      "emf": [[-1, 2], [0, 1], [3 ,1], [2, 3], [1, 2]],
       "uv": 7,
-      "agressao": "baixa",
+      "agressao": "alta",
       "tituloRelato": [
         "1742年6月3日",
         "1869年3月14日",
@@ -261,7 +261,7 @@
       "regiao": "Europa",
       "motivacao": "Proteger com extrema violência os tesouros e riquezas enterrados em sua sepultura",
       "surgimento": "Século IX",
-      "emf": [[-1, -2], [2, -2], [2, -3], [3, -3], [2, -2]],
+      "emf": [[-1, -2], [2, -1], [0, -1], [-1, 2], [-2, 3]],
       "uv": 2,
       "agressao": "média",
       "tituloRelato": [
@@ -284,7 +284,7 @@
       "regiao": "Ásia",
       "motivacao": "Drenar a energia vital (Qi) das pessoas vivas por estar impossibilitado de alcançar o descanso eterno",
       "surgimento": "Século XVII",
-      "emf": [[3, -1], [-1, 3], [-3, 1], [1, -1], [2, -3]],
+      "emf": [[3, -3], [-1, -1], [-3, -2], [-2, -1], [0, -3]],
       "uv": 1,
       "agressao": "baixa",
       "tituloRelato": [
@@ -307,7 +307,7 @@
       "regiao": "Ásia",
       "motivacao": "Atrapalhar viajantes, pregar peças, causar loucura e revelar segredos do passado e do futuro através de enigmas",
       "surgimento": "Século XI",
-      "emf": [[-2, -1], [-3, -3], [2, 2], [1, 1], [-1, -2]],
+      "emf": [[-2, -2], [1, -2], [1, 0], [3, -2], [-3, 2]],
       "uv": 6,
       "agressao": "média",
       "tituloRelato": [
@@ -330,18 +330,18 @@
       "regiao": "Global",
       "motivacao": "Condenado a navegar eternamente sem jamais poder aportar, servindo como um presságio de desgraça para os marinheiros que o avistam",
       "surgimento": "Século XVII",
-      "emf": [[1, 2], [-3, -1], [-1, 1], [-1, 2], [-3, -1]],
+      "emf": [[-1, 1], [2, 0], [-2, 2], [-1, 1], [-2, 3]],
       "uv": 3,
       "agressao": "média",
       "tituloRelato": [
         "September 21, 1643",
         "January 12, 1771",
-        "November 3, 1897"
+        "1886年7月8日"
       ],
       "textoRelato": [
         "Marinheiros relatam avistamento de uma embarcação desconhecida próximo ao Cabo da Boa Esperança durante uma tempestade.",
         "Tripulação de uma embarcação mercante registra uma ocorrência inexplicável em alto-mar.",
-        "Capitão relata avistamento de uma embarcação desconhecida desaparecendo no horizonte. Nenhum registro de sua identificação foi encontrado."
+        "Capitão de pesqueiro relata avistamento de uma embarcação desconhecida desaparecendo no horizonte. Nenhum registro de sua identificação foi encontrado."
       ],
       "ordem": 2,
       "imagem": "/holandês_voador.png"
@@ -353,9 +353,9 @@
       "regiao": "América",
       "motivacao": "Responder a rituais de invocação feitos em ambientes escuros diante do espelho, atormentando ou atacando quem a chama",
       "surgimento": "Século XX",
-      "emf": [[2, -3], [3, -3], [1, 2], [1, 3], [-3, -2]],
+      "emf": [[2, -3], [0, 3], [2, 2], [-2, -3], [0, 3]],
       "uv": 2,
-      "agressao": "baixa",
+      "agressao": "alta",
       "tituloRelato": [
         "October 14, 1921",
         "December 7, 1954",

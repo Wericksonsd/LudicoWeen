@@ -3,7 +3,7 @@
         {
             "id": 1,
             "nome": "Leitor EMF",
-            "descricao": "Euqalize o campo magnético para detectar a presença do fantasma.",
+            "descricao": "Euqalize o campo magnético para detectar o nivel de agressividade do fantasma.",
             "icon": "PanelTopBottomDashed",
             "linkTo": "/ferramentas/emf",
             "codigoQr": "CASSIO-PLACEHOLDER-EMF"
@@ -11,7 +11,7 @@
         {
             "id": 2,
             "nome": "Luz UV",
-            "descricao": "Capture vestígios deixado por ataques dos fantasmas.",
+            "descricao": "Capture vestígios deixados pela presença dos fantasmas.",
             "icon": "Flashlight",
             "linkTo": "/ferramentas/uv",
             "codigoQr": "CASSIO-PLACEHOLDER-UV"

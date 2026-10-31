@@ -34,7 +34,7 @@ export default function Documentos () {
         <div className="flex-1 flex flex-col items-center justify-between gap-4 px-6 py-4 bg-zinc-800">
             <div className="w-full flex-1 flex flex-col gap-2">
                 <CardsFantasma fantasmas={dados.fantasmas[fantasma]} liberado={liberado} />
-                <div className="h-24 w-full flex items-center justify-between gap-4">
+                <div className="h-16 w-full flex items-center justify-between gap-4">
                     <button className="h-8 w-8 bg-orange-300 rounded-md text-zinc-800" onClick={handlePreviousFantasma}>{'<'}</button>
                     {/*<div className="flex-1 flex flex-col items-center justify-around gap-4">
                         <h1 className="font-bold text-center text-sm">PROBABILIDADE DE ENTIDADE</h1>

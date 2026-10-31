@@ -38,16 +38,17 @@ export default function Evidencias () {
             titulo="Evidências"
             subTitulo="Armazene as informações coletadas e tente capturar a entidade."
             hiddenVar={true}
-            helpTExt="Após utilizar as ferramentas, você poderá anotar as informações coletadas aqui, e assim que se sentir confiante em tentar descobrir qual entidade está caçando, abra a caixa de seleção, o selecione e confirme, aguarde o resultado e em caso de acerto, dirija-se a entrada do evento para receber seu prêmio."/>
-            <div className="flex-1"
+            helpTExt="Após utilizar as ferramentas, você poderá anotar as informações coletadas aqui, e assim que se sentir confiante em tentar descobrir qual entidade está caçando, abra a caixa de seleção, o selecione e confirme, aguarde o resultado e em caso de acerto, dirija-se a entrada do evento para participar do sorteio."/>
+            <div className="h-92"
             style={{backgroundImage: "url('/folha.png')", backgroundSize: "cover", backgroundPosition: "center"}}>
                 <textarea
                     value={texto}
                     onChange={(e) => setTexto(e.target.value)}
                     placeholder="Anote suas evidências aqui..."
-                    className="h-full w-full resize-none bg-transparent p-6 text-zinc-900 outline-none placeholder:text-zinc-600"
+                    className="w-full h-full resize-none bg-transparent p-6 text-zinc-900 outline-none placeholder:text-zinc-600"
                 />
             </div>
+            <div className="flex-1"></div>
             <button type="button" onClick={() => setModalAberto(true)} disabled={bloqueado}
                 className="h-16 bg-amber-500 w-full text-zinc-950 font-bold disabled:opacity-60">
                 {rotuloBotao}

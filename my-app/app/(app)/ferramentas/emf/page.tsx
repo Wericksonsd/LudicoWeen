@@ -73,7 +73,7 @@ export default function Ferramentas() {
                 titulo="Leitor EMF"
                 subTitulo="Leia e ajuste a frequência de campos eletromagnéticos"
                 hiddenVar={false}
-                helpTExt="Escolha um dos 5 círculos pelos botões numerados e ajuste amplitude (horizontal) e altitude (vertical). O círculo se move enquanto você ajusta: com um valor certo ele fica meio branco e, com os dois certos, totalmente branco. Quando todos estiverem totalmente brancos, o sinal está sincronizado." />
+                helpTExt="Escolha um dos 5 círculos pelos botões numerados e ajuste amplitude (horizontal) e altitude (vertical). O círculo se move enquanto você ajusta, com um valor certo ele fica meio branco e, com os dois certos, totalmente branco. Quando todos estiverem totalmente brancos, o sinal está sincronizado. Analise onde a maioria dos pontos se concentra e determine a agressividade do fantasma entre baixa, média e alta." />
 
             <div className="relative w-full aspect-square border-3 border-orange-300 rounded-md bg-center bg-cover"
                 style={{ backgroundImage: "url('/fundoEMF.png')" }}>

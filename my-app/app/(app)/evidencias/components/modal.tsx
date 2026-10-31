@@ -57,7 +57,7 @@ export default function ModalEscolha ({ onClose }: Props) {
 
                 {mensagem && (
                     <p role="status"
-                        className={`text-center text-sm font-bold p-2 rounded-md ${capturado ? "bg-green-300 text-green-950" : "bg-red-300 text-red-950"}`}>
+                        className={`text-center text-sm font-bold p-2 rounded-md ${capturado ? "bg-orange-800 text-zinc-100" : "bg-red-300 text-red-950"}`}>
                         {mensagem}
                     </p>
                 )}
@@ -70,7 +70,6 @@ export default function ModalEscolha ({ onClose }: Props) {
                         <select id="entidade" value={escolhido ?? ""} disabled={bloqueado || enviando}
                             onChange={(e) => setEscolhido(e.target.value ? Number(e.target.value) : null)}
                             className="w-full p-2 rounded-md border-2 border-zinc-900 bg-orange-100 disabled:opacity-50">
-                            <option value="">Escolha uma entidade...</option>
                             {dados.fantasmas.map((f) => (
                                 <option key={f.id} value={f.id}>{f.nome}</option>
                             ))}

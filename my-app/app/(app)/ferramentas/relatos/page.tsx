@@ -23,7 +23,7 @@ export default function Relatos() {
                 titulo="Relatos"
                 subTitulo="Relatos de testemunhas sobre a entidade."
                 hiddenVar={true}
-                helpTExt="Abra cada relato e leia com atenção. Procure padrões de comportamento que ajudem a descobrir qual entidade está caçando." />
+                helpTExt="Abra cada relato e leia com atenção. Procure padrões de comportamento que ajudem a descobrir qual entidade está caçando. Pontos como Origem, Região e Comportamento são relevantes." />
 
             <div className="flex-1 w-full flex flex-col gap-4">
                 {Array.from({ length: QTD_RELATOS }, (_, i) => (

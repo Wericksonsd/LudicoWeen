@@ -24,7 +24,7 @@ const BOTOES: { id: Disco; nome: string; cor: string }[] = [
     { id: "verde", nome: "Verde", cor: "bg-green-600" },
 ]
 
-const PASSO = 10 // graus por "encaixe" (igual aos 36 passos dos antigos sliders)
+const PASSO = 1 // graus por "encaixe" (igual aos 36 passos dos antigos sliders)
 
 export default function Retalhos() {
     useGuardaFerramenta(3)
@@ -72,13 +72,13 @@ export default function Retalhos() {
                     titulo="Lanterna UV"
                     subTitulo="Rastreio espectros plasmáticos deixados pelas entidades."
                     hiddenVar={true}
-                    helpTExt={`Arraste a lanterna sobre a área para revelar os espectros registrados pela luz UV. Analise a cor e o número de espectros para determinar a presença da entidade.
+                    helpTExt={`Gire o disco de cores escolhendo qual cor girar por vez, assim que estiverem encaixados, análize o sígilo e determine a qual ordem o fantasma pertence.
         
-                    1-2 > PRESENÇA BAIXA
+                    FOICE: Ordem da Morte
         
-                    3-5 > PRESENÇA MÉDIA
+                    CORAÇÃO ESTILHAÇADO: Ordem da Vingança
         
-                    6-7 > PRESENÇA ALTA`}
+                    GARRA: Ordem do Tormento`}
                     />
 
             <div
