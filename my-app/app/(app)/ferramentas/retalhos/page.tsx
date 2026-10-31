@@ -69,8 +69,8 @@ export default function Retalhos() {
     return (
         <div className="flex-1 p-6 flex flex-col">
             <Titulo
-                    titulo="Lanterna UV"
-                    subTitulo="Rastreio espectros plasmáticos deixados pelas entidades."
+                    titulo="Sigilos"
+                    subTitulo="Encaixe os discos para revelar o sigilo."
                     hiddenVar={true}
                     helpTExt={`Gire o disco de cores escolhendo qual cor girar por vez, assim que estiverem encaixados, análize o sígilo e determine a qual ordem o fantasma pertence.
         
